@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "../components/Header";
+import { APP_NAME } from "../config/app.config";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -14,8 +15,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "SpaceX Launches",
-  description: "View the latest SpaceX launches",
+  title: APP_NAME,
+  description: "View the latest SpaceX launches and vehicle information",
 };
 
 export default function RootLayout({

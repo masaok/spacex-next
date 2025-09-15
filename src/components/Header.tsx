@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { useState } from 'react';
 import { useLanguageStore, SUPPORTED_LANGUAGES } from '../store/languageStore';
 import { getTranslation } from '../translations/translations';
+import { APP_NAME } from '../config/app.config';
 
 export default function Header() {
   const { currentLanguage, setLanguage, getCurrentLanguage } = useLanguageStore();
@@ -26,7 +27,7 @@ export default function Header() {
               href="/"
               className="text-xl font-bold text-white hover:text-blue-400 transition-colors"
             >
-              {t.header.title}
+              {APP_NAME}
             </Link>
           </div>
 
