@@ -50,31 +50,31 @@ export default function Header() {
               href="/capsules"
               className="text-gray-300 hover:text-white transition-colors font-medium"
             >
-              {t.header.capsules}
+              Capsules
             </Link>
             <Link
               href="/crew"
               className="text-gray-300 hover:text-white transition-colors font-medium"
             >
-              {t.header.crew}
+              Crew
             </Link>
             <Link
               href="/cores"
               className="text-gray-300 hover:text-white transition-colors font-medium"
             >
-              {t.header.cores}
+              Cores
             </Link>
             <Link
               href="/company"
               className="text-gray-300 hover:text-white transition-colors font-medium"
             >
-              {t.header.company}
+              Company
             </Link>
             <Link
               href="/roadster"
               className="text-gray-300 hover:text-white transition-colors font-medium"
             >
-              🚗 {t.header.roadster}
+              🚗 Roadster
             </Link>
 
             {/* Language Dropdown */}
@@ -174,35 +174,35 @@ export default function Header() {
                 className="block text-gray-300 hover:text-white transition-colors font-medium py-2"
                 onClick={() => setIsDropdownOpen(false)}
               >
-                {t.header.capsules}
+                Capsules
               </Link>
               <Link
                 href="/crew"
                 className="block text-gray-300 hover:text-white transition-colors font-medium py-2"
                 onClick={() => setIsDropdownOpen(false)}
               >
-                {t.header.crew}
+                Crew
               </Link>
               <Link
                 href="/cores"
                 className="block text-gray-300 hover:text-white transition-colors font-medium py-2"
                 onClick={() => setIsDropdownOpen(false)}
               >
-                {t.header.cores}
+                Cores
               </Link>
               <Link
                 href="/company"
                 className="block text-gray-300 hover:text-white transition-colors font-medium py-2"
                 onClick={() => setIsDropdownOpen(false)}
               >
-                {t.header.company}
+                Company
               </Link>
               <Link
                 href="/roadster"
                 className="block text-gray-300 hover:text-white transition-colors font-medium py-2"
                 onClick={() => setIsDropdownOpen(false)}
               >
-                🚗 {t.header.roadster}
+                🚗 Roadster
               </Link>
 
               {/* Mobile Language Selection */}
