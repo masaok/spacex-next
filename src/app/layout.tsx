@@ -5,6 +5,8 @@ import Header from "../components/Header";
 import { generateSEOMetadata, homePageSEO } from "../lib/seo";
 import { HomePageSchema } from "../components/StructuredData";
 import { PerformanceMonitor } from "../components/PerformanceMonitor";
+import { GoogleAnalytics } from '@next/third-parties/google';
+import { GOOGLE_ANALYTICS_ID } from '../config/app.config';
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -35,6 +37,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-black min-h-screen`}
       >
+        <GoogleAnalytics gaId={GOOGLE_ANALYTICS_ID} />
         <PerformanceMonitor />
         <Header />
         <main>{children}</main>

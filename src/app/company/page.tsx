@@ -50,7 +50,7 @@ export default function CompanyPage() {
         setCompany(response.data);
       } catch (error) {
         console.error('Failed to fetch company info:', error);
-        setError('Failed to load company information');
+        setError(t.company.error);
       } finally {
         setLoading(false);
       }
@@ -112,10 +112,10 @@ export default function CompanyPage() {
           {/* Header Section */}
           <div className="text-center mb-12">
             <h1 className="text-6xl font-bold bg-gradient-to-r from-purple-400 via-pink-400 to-cyan-400 bg-clip-text text-transparent mb-4">
-              🏢 {company.name}
+              🏢 {t.company.title}
             </h1>
             <p className="text-2xl text-gray-300 mb-6">
-              Founded by {company.founder} in {company.founded}
+              {t.company.foundedBy} {company.founder} in {company.founded}
             </p>
             <ModernCard variant="glass" className="max-w-4xl mx-auto">
               <p className="text-lg text-gray-300 leading-relaxed">
@@ -129,7 +129,7 @@ export default function CompanyPage() {
             <ModernCard variant="gradient" hover={false}>
               <div className="text-center">
                 <AnimatedCounter value={company.employees} className="text-3xl" />
-                <p className="text-gray-300 mt-2">Employees</p>
+                <p className="text-gray-300 mt-2">{t.company.employees}</p>
               </div>
             </ModernCard>
             <ModernCard variant="neon" hover={false}>
@@ -137,19 +137,19 @@ export default function CompanyPage() {
                 <div className="text-3xl font-bold bg-gradient-to-r from-green-400 to-emerald-400 bg-clip-text text-transparent">
                   {formatCurrency(company.valuation)}
                 </div>
-                <p className="text-gray-300 mt-2">Valuation</p>
+                <p className="text-gray-300 mt-2">{t.company.valuation}</p>
               </div>
             </ModernCard>
             <ModernCard variant="glass" hover={false}>
               <div className="text-center">
                 <AnimatedCounter value={company.vehicles} className="text-3xl text-blue-400" />
-                <p className="text-gray-300 mt-2">Vehicles</p>
+                <p className="text-gray-300 mt-2">{t.company.vehicles}</p>
               </div>
             </ModernCard>
             <ModernCard variant="default" hover={false}>
               <div className="text-center">
                 <AnimatedCounter value={company.launch_sites} className="text-3xl text-purple-400" />
-                <p className="text-gray-300 mt-2">Launch Sites</p>
+                <p className="text-gray-300 mt-2">{t.company.launchSites}</p>
               </div>
             </ModernCard>
           </div>
@@ -157,27 +157,27 @@ export default function CompanyPage() {
           {/* Leadership Team */}
           <ModernCard variant="gradient" className="mb-12">
             <h2 className="text-3xl font-bold text-white mb-8 text-center">
-              🚀 Leadership Team
+              🚀 {t.company.leadershipTeam}
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               <div className="text-center p-4 bg-white/5 rounded-lg backdrop-blur-sm">
                 <div className="text-4xl mb-2">👨‍💼</div>
-                <h3 className="text-lg font-bold text-purple-400">CEO</h3>
+                <h3 className="text-lg font-bold text-purple-400">{t.company.ceo}</h3>
                 <p className="text-white">{company.ceo}</p>
               </div>
               <div className="text-center p-4 bg-white/5 rounded-lg backdrop-blur-sm">
                 <div className="text-4xl mb-2">🔧</div>
-                <h3 className="text-lg font-bold text-blue-400">CTO</h3>
+                <h3 className="text-lg font-bold text-blue-400">{t.company.cto}</h3>
                 <p className="text-white">{company.cto}</p>
               </div>
               <div className="text-center p-4 bg-white/5 rounded-lg backdrop-blur-sm">
                 <div className="text-4xl mb-2">📊</div>
-                <h3 className="text-lg font-bold text-green-400">COO</h3>
+                <h3 className="text-lg font-bold text-green-400">{t.company.coo}</h3>
                 <p className="text-white">{company.coo}</p>
               </div>
               <div className="text-center p-4 bg-white/5 rounded-lg backdrop-blur-sm">
                 <div className="text-4xl mb-2">🚀</div>
-                <h3 className="text-lg font-bold text-orange-400">CTO Propulsion</h3>
+                <h3 className="text-lg font-bold text-orange-400">{t.company.ctoPropulsion}</h3>
                 <p className="text-white">{company.cto_propulsion}</p>
               </div>
             </div>
@@ -187,19 +187,19 @@ export default function CompanyPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
             <ModernCard variant="glass">
               <h2 className="text-2xl font-bold text-white mb-6">
-                🏢 Headquarters
+                🏢 {t.company.headquarters}
               </h2>
               <div className="space-y-4">
                 <div className="flex justify-between">
-                  <span className="text-gray-400">Address:</span>
+                  <span className="text-gray-400">{t.company.address}:</span>
                   <span className="text-white">{company.headquarters.address}</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-gray-400">City:</span>
+                  <span className="text-gray-400">{t.company.city}:</span>
                   <span className="text-white">{company.headquarters.city}</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-gray-400">State:</span>
+                  <span className="text-gray-400">{t.company.state}:</span>
                   <span className="text-white">{company.headquarters.state}</span>
                 </div>
               </div>
@@ -207,19 +207,19 @@ export default function CompanyPage() {
 
             <ModernCard variant="neon">
               <h2 className="text-2xl font-bold text-white mb-6">
-                🚀 Facilities
+                🚀 {t.company.facilities}
               </h2>
               <div className="space-y-4">
                 <div className="flex justify-between">
-                  <span className="text-gray-300">Launch Sites:</span>
+                  <span className="text-gray-300">{t.company.launchSites}:</span>
                   <span className="text-cyan-400 font-bold text-xl">{company.launch_sites}</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-gray-300">Test Sites:</span>
+                  <span className="text-gray-300">{t.company.testSites}:</span>
                   <span className="text-cyan-400 font-bold text-xl">{company.test_sites}</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-gray-300">Vehicle Types:</span>
+                  <span className="text-gray-300">{t.company.vehicleTypes}:</span>
                   <span className="text-cyan-400 font-bold text-xl">{company.vehicles}</span>
                 </div>
               </div>
@@ -229,32 +229,32 @@ export default function CompanyPage() {
           {/* Social Links */}
           <ModernCard variant="gradient" className="text-center">
             <h2 className="text-3xl font-bold text-white mb-8">
-              🌐 Connect with SpaceX
+              🌐 {t.company.connectWithSpacex}
             </h2>
             <div className="flex flex-wrap justify-center gap-4">
               <GlowingButton
                 onClick={() => window.open(company.links.website, '_blank')}
                 variant="primary"
               >
-                🌐 Official Website
+                🌐 {t.company.officialWebsite}
               </GlowingButton>
               <GlowingButton
                 onClick={() => window.open(company.links.twitter, '_blank')}
                 variant="neon"
               >
-                🐦 SpaceX Twitter
+                🐦 {t.company.spacexTwitter}
               </GlowingButton>
               <GlowingButton
                 onClick={() => window.open(company.links.elon_twitter, '_blank')}
                 variant="secondary"
               >
-                👨‍🚀 Elon&apos;s Twitter
+                👨‍🚀 {t.company.elonTwitter}
               </GlowingButton>
               <GlowingButton
                 onClick={() => window.open(company.links.flickr, '_blank')}
                 variant="primary"
               >
-                📸 Photos on Flickr
+                📸 {t.company.photosFlickr}
               </GlowingButton>
             </div>
           </ModernCard>

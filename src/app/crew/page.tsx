@@ -35,7 +35,7 @@ export default function CrewPage() {
         setCrew(response.data);
       } catch (error) {
         console.error('Failed to fetch crew:', error);
-        setError('Failed to load crew data');
+        setError(t.crew.error);
       } finally {
         setLoading(false);
       }
@@ -108,10 +108,10 @@ export default function CrewPage() {
           {/* Header Section */}
           <div className="text-center mb-12">
             <h1 className="text-6xl font-bold bg-gradient-to-r from-purple-400 via-pink-400 to-cyan-400 bg-clip-text text-transparent mb-4">
-              👨‍🚀 Dragon Crew
+              👨‍🚀 {t.crew.title}
             </h1>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              Meet the brave astronauts who have soared through the cosmos aboard SpaceX&apos;s Dragon spacecraft
+              {t.crew.subtitle}
             </p>
           </div>
 
@@ -120,25 +120,25 @@ export default function CrewPage() {
             <ModernCard variant="gradient" hover={false}>
               <div className="text-center">
                 <AnimatedCounter value={crew.length} className="text-3xl" />
-                <p className="text-gray-300 mt-2">Total Crew</p>
+                <p className="text-gray-300 mt-2">{t.crew.totalCrew}</p>
               </div>
             </ModernCard>
             <ModernCard variant="neon" hover={false}>
               <div className="text-center">
                 <AnimatedCounter value={activeAstronauts} className="text-3xl text-green-400" />
-                <p className="text-gray-300 mt-2">Active Astronauts</p>
+                <p className="text-gray-300 mt-2">{t.crew.activeAstronauts}</p>
               </div>
             </ModernCard>
             <ModernCard variant="glass" hover={false}>
               <div className="text-center">
                 <AnimatedCounter value={totalFlights} className="text-3xl text-blue-400" />
-                <p className="text-gray-300 mt-2">Total Flights</p>
+                <p className="text-gray-300 mt-2">{t.crew.totalFlights}</p>
               </div>
             </ModernCard>
             <ModernCard variant="default" hover={false}>
               <div className="text-center">
                 <AnimatedCounter value={Object.keys(agencyCounts).length} className="text-3xl text-purple-400" />
-                <p className="text-gray-300 mt-2">Space Agencies</p>
+                <p className="text-gray-300 mt-2">{t.crew.spaceAgencies}</p>
               </div>
             </ModernCard>
           </div>
@@ -150,7 +150,7 @@ export default function CrewPage() {
                 <div className="flex-1">
                   <input
                     type="text"
-                    placeholder="Search crew members..."
+                    placeholder={t.crew.searchPlaceholder}
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
                     className="w-full px-4 py-3 bg-gray-800/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:border-purple-400 focus:outline-none"
@@ -159,7 +159,7 @@ export default function CrewPage() {
               </div>
 
               <div className="flex flex-wrap gap-2">
-                <span className="text-gray-400 font-medium">Agency:</span>
+                <span className="text-gray-400 font-medium">{t.crew.agency}:</span>
                 {['all', ...Object.keys(agencyCounts)].map(agency => (
                   <GlowingButton
                     key={agency}
@@ -167,7 +167,7 @@ export default function CrewPage() {
                     variant={agencyFilter === agency ? 'primary' : 'secondary'}
                     className="px-3 py-1 text-sm"
                   >
-                    {agency === 'all' ? 'All' : agency}
+                    {agency === 'all' ? t.crew.all : agency}
                     {agency !== 'all' && agencyCounts[agency] && (
                       <span className="ml-2 bg-white/20 px-2 py-1 rounded-full text-xs">
                         {agencyCounts[agency]}
@@ -178,7 +178,7 @@ export default function CrewPage() {
               </div>
 
               <div className="flex flex-wrap gap-2">
-                <span className="text-gray-400 font-medium">Status:</span>
+                <span className="text-gray-400 font-medium">{t.crew.status}:</span>
                 {['all', 'active', 'inactive', 'retired'].map(status => (
                   <GlowingButton
                     key={status}
@@ -228,12 +228,12 @@ export default function CrewPage() {
 
                     <div className="space-y-3">
                       <div className="flex justify-between text-sm">
-                        <span className="text-gray-400">Agency:</span>
+                        <span className="text-gray-400">{t.crew.agency}:</span>
                         <span className="text-white font-medium">{member.agency}</span>
                       </div>
 
                       <div className="flex justify-between text-sm">
-                        <span className="text-gray-400">Missions:</span>
+                        <span className="text-gray-400">{t.crew.missions}:</span>
                         <span className="text-purple-400 font-bold">{member.launches.length}</span>
                       </div>
 
@@ -244,7 +244,7 @@ export default function CrewPage() {
                             variant="primary"
                             className="flex-1 text-sm py-2"
                           >
-                            📖 Wikipedia
+                            📖 {t.crew.wikipedia}
                           </GlowingButton>
                         )}
                       </div>
@@ -257,17 +257,16 @@ export default function CrewPage() {
 
           {filteredCrew.length === 0 && (
             <ModernCard variant="glass" className="text-center py-12">
-              <h3 className="text-2xl font-bold text-gray-400 mb-4">No Crew Members Found</h3>
-              <p className="text-gray-500">Try adjusting your search or filter criteria.</p>
+              <h3 className="text-2xl font-bold text-gray-400 mb-4">{t.crew.noCrewFound}</h3>
+              <p className="text-gray-500">{t.crew.adjustFilters}</p>
             </ModernCard>
           )}
 
           {/* Fun Fact Card */}
           <ModernCard variant="neon" className="mt-12 text-center">
-            <h3 className="text-2xl font-bold text-white mb-4">🌟 Did You Know?</h3>
+            <h3 className="text-2xl font-bold text-white mb-4">🌟 {t.crew.didYouKnow}</h3>
             <p className="text-gray-300 text-lg leading-relaxed">
-              SpaceX&apos;s Dragon is the first commercial spacecraft to carry astronauts to the International Space Station,
-              marking a new era in commercial human spaceflight! 🚀✨
+              {t.crew.funFact}
             </p>
           </ModernCard>
         </div>

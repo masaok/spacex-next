@@ -52,7 +52,7 @@ export default function RoadsterPage() {
         setRoadster(response.data);
       } catch (error) {
         console.error('Failed to fetch roadster:', error);
-        setError('Failed to load roadster data');
+        setError(t.roadster.error);
       } finally {
         setLoading(false);
       }
@@ -116,10 +116,10 @@ export default function RoadsterPage() {
           {/* Header Section */}
           <div className="text-center mb-12">
             <h1 className="text-6xl font-bold bg-gradient-to-r from-red-500 via-orange-500 to-yellow-500 bg-clip-text text-transparent mb-4">
-              🚗 {roadster.name}
+              🚗 {t.roadster.title}
             </h1>
             <p className="text-2xl text-gray-300 mb-6">
-              Starman&apos;s Epic Journey Through Space
+              {t.roadster.subtitle}
             </p>
             <ModernCard variant="neon" className="max-w-4xl mx-auto">
               <p className="text-lg text-gray-300 leading-relaxed">
@@ -160,25 +160,25 @@ export default function RoadsterPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
             <ModernCard variant="gradient" hover={false} className="text-center">
               <AnimatedCounter value={daysSinceLaunch} className="text-3xl text-yellow-400" />
-              <p className="text-gray-300 mt-2">Days in Space</p>
+              <p className="text-gray-300 mt-2">{t.roadster.daysInSpace}</p>
             </ModernCard>
             <ModernCard variant="neon" hover={false} className="text-center">
               <div className="text-3xl font-bold text-cyan-400">
                 {formatLargeNumber(roadster.speed_kph)} km/h
               </div>
-              <p className="text-gray-300 mt-2">Current Speed</p>
+              <p className="text-gray-300 mt-2">{t.roadster.currentSpeed}</p>
             </ModernCard>
             <ModernCard variant="glass" hover={false} className="text-center">
               <div className="text-3xl font-bold text-blue-400">
                 {formatLargeNumber(roadster.earth_distance_km)} km
               </div>
-              <p className="text-gray-300 mt-2">Distance from Earth</p>
+              <p className="text-gray-300 mt-2">{t.roadster.distanceFromEarth}</p>
             </ModernCard>
             <ModernCard variant="default" hover={false} className="text-center">
               <div className="text-3xl font-bold text-red-400">
                 {formatLargeNumber(roadster.mars_distance_km)} km
               </div>
-              <p className="text-gray-300 mt-2">Distance from Mars</p>
+              <p className="text-gray-300 mt-2">{t.roadster.distanceFromMars}</p>
             </ModernCard>
           </div>
 
@@ -186,31 +186,31 @@ export default function RoadsterPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
             <ModernCard variant="gradient">
               <h2 className="text-2xl font-bold text-white mb-6 flex items-center">
-                🛰️ Orbital Mechanics
+                🛰️ {t.roadster.orbitalMechanics}
               </h2>
               <div className="space-y-4">
                 <div className="flex justify-between">
-                  <span className="text-gray-400">Orbit Type:</span>
+                  <span className="text-gray-400">{t.roadster.orbitType}:</span>
                   <span className="text-white font-medium">{roadster.orbit_type}</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-gray-400">Apoapsis:</span>
+                  <span className="text-gray-400">{t.roadster.apoapsis}:</span>
                   <span className="text-purple-400 font-bold">{roadster.apoapsis_au.toFixed(3)} AU</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-gray-400">Periapsis:</span>
+                  <span className="text-gray-400">{t.roadster.periapsis}:</span>
                   <span className="text-blue-400 font-bold">{roadster.periapsis_au.toFixed(3)} AU</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-gray-400">Orbital Period:</span>
+                  <span className="text-gray-400">{t.roadster.orbitalPeriod}:</span>
                   <span className="text-green-400 font-bold">{roadster.period_days.toFixed(1)} days</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-gray-400">Eccentricity:</span>
+                  <span className="text-gray-400">{t.roadster.eccentricity}:</span>
                   <span className="text-yellow-400 font-bold">{roadster.eccentricity.toFixed(3)}</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-gray-400">Inclination:</span>
+                  <span className="text-gray-400">{t.roadster.inclination}:</span>
                   <span className="text-orange-400 font-bold">{roadster.inclination.toFixed(2)}°</span>
                 </div>
               </div>
@@ -218,11 +218,11 @@ export default function RoadsterPage() {
 
             <ModernCard variant="glass">
               <h2 className="text-2xl font-bold text-white mb-6 flex items-center">
-                🚀 Launch Information
+                🚀 {t.roadster.launchInformation}
               </h2>
               <div className="space-y-4">
                 <div className="flex justify-between">
-                  <span className="text-gray-400">Launch Date:</span>
+                  <span className="text-gray-400">{t.roadster.launchDate}:</span>
                   <span className="text-white font-medium">
                     {new Date(roadster.launch_date_utc).toLocaleDateString('en-US', {
                       year: 'numeric',
@@ -232,17 +232,17 @@ export default function RoadsterPage() {
                   </span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-gray-400">Launch Mass:</span>
+                  <span className="text-gray-400">{t.roadster.launchMass}:</span>
                   <span className="text-purple-400 font-bold">
                     {formatLargeNumber(roadster.launch_mass_kg)} kg
                   </span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-gray-400">NORAD ID:</span>
+                  <span className="text-gray-400">{t.roadster.noradId}:</span>
                   <span className="text-cyan-400 font-bold">{roadster.norad_id}</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-gray-400">Semi-Major Axis:</span>
+                  <span className="text-gray-400">{t.roadster.semiMajorAxis}:</span>
                   <span className="text-green-400 font-bold">{roadster.semi_major_axis_au.toFixed(3)} AU</span>
                 </div>
               </div>
@@ -252,28 +252,28 @@ export default function RoadsterPage() {
           {/* Fun Facts */}
           <ModernCard variant="neon" className="mb-12">
             <h2 className="text-3xl font-bold text-white mb-8 text-center">
-              🌟 Mind-Blowing Facts
+              🌟 {t.roadster.mindBlowingFacts}
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               <div className="text-center p-4 bg-white/5 rounded-lg backdrop-blur-sm">
                 <div className="text-4xl mb-2">🎵</div>
-                <h3 className="text-lg font-bold text-cyan-400 mb-2">Space Oddity</h3>
+                <h3 className="text-lg font-bold text-cyan-400 mb-2">{t.roadster.spaceOddity}</h3>
                 <p className="text-gray-300 text-sm">
-                  The roadster plays &quot;Space Oddity&quot; by David Bowie on loop
+                  {t.roadster.spaceOddityDesc}
                 </p>
               </div>
               <div className="text-center p-4 bg-white/5 rounded-lg backdrop-blur-sm">
                 <div className="text-4xl mb-2">👨‍🚀</div>
-                <h3 className="text-lg font-bold text-purple-400 mb-2">Starman</h3>
+                <h3 className="text-lg font-bold text-purple-400 mb-2">{t.roadster.starman}</h3>
                 <p className="text-gray-300 text-sm">
-                  A mannequin in a SpaceX suit sits in the driver&apos;s seat
+                  {t.roadster.starmanDesc}
                 </p>
               </div>
               <div className="text-center p-4 bg-white/5 rounded-lg backdrop-blur-sm">
                 <div className="text-4xl mb-2">📚</div>
-                <h3 className="text-lg font-bold text-green-400 mb-2">Hitchhiker&apos;s Guide</h3>
+                <h3 className="text-lg font-bold text-green-400 mb-2">{t.roadster.hitchhikersGuide}</h3>
                 <p className="text-gray-300 text-sm">
-                  &quot;DON&apos;T PANIC!&quot; is displayed on the dashboard screen
+                  {t.roadster.hitchhikersDesc}
                 </p>
               </div>
             </div>
@@ -282,26 +282,26 @@ export default function RoadsterPage() {
           {/* Links */}
           <ModernCard variant="gradient" className="text-center">
             <h2 className="text-3xl font-bold text-white mb-8">
-              🔗 Learn More
+              🔗 {t.roadster.learnMore}
             </h2>
             <div className="flex flex-wrap justify-center gap-4">
               <GlowingButton
                 onClick={() => window.open(roadster.wikipedia, '_blank')}
                 variant="primary"
               >
-                📖 Wikipedia
+                📖 {t.roadster.wikipedia}
               </GlowingButton>
               <GlowingButton
                 onClick={() => window.open(roadster.video, '_blank')}
                 variant="neon"
               >
-                📹 Launch Video
+                📹 {t.roadster.launchVideo}
               </GlowingButton>
               <GlowingButton
                 onClick={() => window.open('https://www.whereisroadster.com/', '_blank')}
                 variant="secondary"
               >
-                🗺️ Live Tracker
+                🗺️ {t.roadster.liveTracker}
               </GlowingButton>
             </div>
           </ModernCard>

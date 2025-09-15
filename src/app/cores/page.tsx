@@ -38,7 +38,7 @@ export default function CoresPage() {
         setCores(response.data);
       } catch (error) {
         console.error('Failed to fetch cores:', error);
-        setError('Failed to load cores data');
+        setError(t.cores.error);
       } finally {
         setLoading(false);
       }
@@ -113,10 +113,10 @@ export default function CoresPage() {
           {/* Header Section */}
           <div className="text-center mb-12">
             <h1 className="text-6xl font-bold bg-gradient-to-r from-purple-400 via-pink-400 to-cyan-400 bg-clip-text text-transparent mb-4">
-              🚀 Falcon Cores
+              🚀 {t.cores.title}
             </h1>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              Track the legendary Falcon rocket first-stage cores that revolutionized spaceflight with their reusability
+              {t.cores.subtitle}
             </p>
           </div>
 
@@ -125,25 +125,25 @@ export default function CoresPage() {
             <ModernCard variant="gradient" hover={false}>
               <div className="text-center">
                 <AnimatedCounter value={cores.length} className="text-3xl" />
-                <p className="text-gray-300 mt-2">Total Cores</p>
+                <p className="text-gray-300 mt-2">{t.cores.totalCores}</p>
               </div>
             </ModernCard>
             <ModernCard variant="neon" hover={false}>
               <div className="text-center">
                 <AnimatedCounter value={landingSuccessRate} suffix="%" className="text-3xl text-green-400" />
-                <p className="text-gray-300 mt-2">Landing Success</p>
+                <p className="text-gray-300 mt-2">{t.cores.landingSuccess}</p>
               </div>
             </ModernCard>
             <ModernCard variant="glass" hover={false}>
               <div className="text-center">
                 <AnimatedCounter value={totalLandings} className="text-3xl text-blue-400" />
-                <p className="text-gray-300 mt-2">Successful Landings</p>
+                <p className="text-gray-300 mt-2">{t.cores.successfulLandings}</p>
               </div>
             </ModernCard>
             <ModernCard variant="default" hover={false}>
               <div className="text-center">
                 <AnimatedCounter value={totalReuses} className="text-3xl text-purple-400" />
-                <p className="text-gray-300 mt-2">Total Reuses</p>
+                <p className="text-gray-300 mt-2">{t.cores.totalReuses}</p>
               </div>
             </ModernCard>
           </div>
@@ -155,7 +155,7 @@ export default function CoresPage() {
                 <div className="flex-1">
                   <input
                     type="text"
-                    placeholder="Search cores by serial..."
+                    placeholder={t.cores.searchPlaceholder}
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
                     className="w-full px-4 py-3 bg-gray-800/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:border-purple-400 focus:outline-none"
@@ -164,7 +164,7 @@ export default function CoresPage() {
               </div>
 
               <div className="flex flex-wrap gap-2">
-                <span className="text-gray-400 font-medium">Status:</span>
+                <span className="text-gray-400 font-medium">{t.cores.status}:</span>
                 {['all', 'active', 'inactive', 'expended', 'lost', 'retired'].map(status => (
                   <GlowingButton
                     key={status}
@@ -183,7 +183,7 @@ export default function CoresPage() {
               </div>
 
               <div className="flex flex-wrap gap-2">
-                <span className="text-gray-400 font-medium">Block:</span>
+                <span className="text-gray-400 font-medium">{t.cores.block}:</span>
                 {['all', ...Object.keys(blockCounts).sort()].map(block => (
                   <GlowingButton
                     key={block}
@@ -191,7 +191,7 @@ export default function CoresPage() {
                     variant={blockFilter === block ? 'neon' : 'secondary'}
                     className="px-3 py-1 text-sm"
                   >
-                    {block === 'all' ? 'All' : `Block ${block}`}
+                    {block === 'all' ? t.cores.all : `${t.cores.block} ${block}`}
                     {block !== 'all' && blockCounts[block] && (
                       <span className="ml-2 bg-white/20 px-2 py-1 rounded-full text-xs">
                         {blockCounts[block]}
@@ -227,19 +227,19 @@ export default function CoresPage() {
 
                     <div className="space-y-3">
                       <div className="flex justify-between text-sm">
-                        <span className="text-gray-400">Block:</span>
+                        <span className="text-gray-400">{t.cores.block}:</span>
                         <span className="text-white font-medium">
-                          {core.block ? `Block ${core.block}` : 'Unknown'}
+                          {core.block ? `${t.cores.block} ${core.block}` : 'Unknown'}
                         </span>
                       </div>
 
                       <div className="flex justify-between text-sm">
-                        <span className="text-gray-400">Reuse Count:</span>
+                        <span className="text-gray-400">{t.cores.reuseCount}:</span>
                         <span className="text-purple-400 font-bold">{core.reuse_count}</span>
                       </div>
 
                       <div className="flex justify-between text-sm">
-                        <span className="text-gray-400">Success Rate:</span>
+                        <span className="text-gray-400">{t.cores.successRate}:</span>
                         <span className={`font-bold ${coreSuccessRate >= 80 ? 'text-green-400' : coreSuccessRate >= 50 ? 'text-yellow-400' : 'text-red-400'}`}>
                           {totalAttemptsByCore > 0 ? `${coreSuccessRate}%` : 'N/A'}
                         </span>
@@ -248,16 +248,16 @@ export default function CoresPage() {
                       <div className="grid grid-cols-2 gap-4 mt-4 pt-4 border-t border-gray-600">
                         <div className="text-center">
                           <div className="text-lg font-bold text-blue-400">{core.rtls_landings}/{core.rtls_attempts}</div>
-                          <div className="text-xs text-gray-400">RTLS Landings</div>
+                          <div className="text-xs text-gray-400">{t.cores.rtlsLandings}</div>
                         </div>
                         <div className="text-center">
                           <div className="text-lg font-bold text-green-400">{core.asds_landings}/{core.asds_attempts}</div>
-                          <div className="text-xs text-gray-400">ASDS Landings</div>
+                          <div className="text-xs text-gray-400">{t.cores.asdsLandings}</div>
                         </div>
                       </div>
 
                       <div className="flex justify-between text-sm mt-4">
-                        <span className="text-gray-400">Missions:</span>
+                        <span className="text-gray-400">{t.cores.missions}:</span>
                         <span className="text-yellow-400 font-bold">{core.launches.length}</span>
                       </div>
 
@@ -277,25 +277,25 @@ export default function CoresPage() {
 
           {filteredCores.length === 0 && (
             <ModernCard variant="glass" className="text-center py-12">
-              <h3 className="text-2xl font-bold text-gray-400 mb-4">No Cores Found</h3>
-              <p className="text-gray-500">Try adjusting your search or filter criteria.</p>
+              <h3 className="text-2xl font-bold text-gray-400 mb-4">{t.cores.noCoresFound}</h3>
+              <p className="text-gray-500">{t.cores.adjustFilters}</p>
             </ModernCard>
           )}
 
           {/* Legend */}
           <ModernCard variant="glass" className="mt-12">
-            <h3 className="text-xl font-bold text-white mb-4">🎯 Landing Types</h3>
+            <h3 className="text-xl font-bold text-white mb-4">🎯 {t.cores.landingTypes}</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
               <div className="flex items-center space-x-2">
                 <span className="w-3 h-3 bg-blue-400 rounded-full"></span>
                 <span className="text-gray-300">
-                  <strong>RTLS:</strong> Return to Launch Site (land back on the launch pad)
+                  <strong>RTLS:</strong> {t.cores.rtlsDescription}
                 </span>
               </div>
               <div className="flex items-center space-x-2">
                 <span className="w-3 h-3 bg-green-400 rounded-full"></span>
                 <span className="text-gray-300">
-                  <strong>ASDS:</strong> Autonomous Spaceport Drone Ship (land on a floating platform)
+                  <strong>ASDS:</strong> {t.cores.asdsDescription}
                 </span>
               </div>
             </div>
