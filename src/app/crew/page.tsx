@@ -111,7 +111,7 @@ export default function CrewPage() {
               👨‍🚀 Dragon Crew
             </h1>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              Meet the brave astronauts who have soared through the cosmos aboard SpaceX's Dragon spacecraft
+              Meet the brave astronauts who have soared through the cosmos aboard SpaceX&apos;s Dragon spacecraft
             </p>
           </div>
 
@@ -261,7 +261,7 @@ export default function CrewPage() {
           <ModernCard variant="neon" className="mt-12 text-center">
             <h3 className="text-2xl font-bold text-white mb-4">🌟 Did You Know?</h3>
             <p className="text-gray-300 text-lg leading-relaxed">
-              SpaceX's Dragon is the first commercial spacecraft to carry astronauts to the International Space Station,
+              SpaceX&apos;s Dragon is the first commercial spacecraft to carry astronauts to the International Space Station,
               marking a new era in commercial human spaceflight! 🚀✨
             </p>
           </ModernCard>

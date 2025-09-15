@@ -3,7 +3,6 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { ModernCard, GlowingButton, AnimatedCounter, StatusBadge, FloatingParticles } from '@/components/ui/ModernCard';
-import { OptimizedImage } from '@/components/OptimizedImage';
 import { useLanguageStore } from '@/store/languageStore';
 import { getTranslation } from '@/translations/translations';
 
@@ -107,7 +106,7 @@ export default function CapsulesPage() {
               🚀 Dragon Capsules
             </h1>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              Explore SpaceX's fleet of Dragon capsules - the advanced spacecraft that ferry crew and cargo to the International Space Station
+              Explore SpaceX&apos;s fleet of Dragon capsules - the advanced spacecraft that ferry crew and cargo to the International Space Station
             </p>
           </div>
 

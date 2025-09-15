@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { ModernCard, GlowingButton, AnimatedCounter, FloatingParticles } from '@/components/ui/ModernCard';
+import { OptimizedImage } from '@/components/OptimizedImage';
 import { useLanguageStore } from '@/store/languageStore';
 import { getTranslation } from '@/translations/translations';
 
@@ -118,7 +119,7 @@ export default function RoadsterPage() {
               🚗 {roadster.name}
             </h1>
             <p className="text-2xl text-gray-300 mb-6">
-              Starman's Epic Journey Through Space
+              Starman&apos;s Epic Journey Through Space
             </p>
             <ModernCard variant="neon" className="max-w-4xl mx-auto">
               <p className="text-lg text-gray-300 leading-relaxed">
@@ -131,9 +132,11 @@ export default function RoadsterPage() {
           {roadster.flickr_images && roadster.flickr_images.length > 0 && (
             <ModernCard variant="glass" className="mb-12 overflow-hidden">
               <div className="relative h-96 lg:h-[500px]">
-                <img
+                <OptimizedImage
                   src={roadster.flickr_images[currentImageIndex]}
                   alt={`Tesla Roadster in space - Image ${currentImageIndex + 1}`}
+                  width={800}
+                  height={400}
                   className="w-full h-full object-cover rounded-lg"
                 />
                 {roadster.flickr_images.length > 1 && (
@@ -256,21 +259,21 @@ export default function RoadsterPage() {
                 <div className="text-4xl mb-2">🎵</div>
                 <h3 className="text-lg font-bold text-cyan-400 mb-2">Space Oddity</h3>
                 <p className="text-gray-300 text-sm">
-                  The roadster plays "Space Oddity" by David Bowie on loop
+                  The roadster plays &quot;Space Oddity&quot; by David Bowie on loop
                 </p>
               </div>
               <div className="text-center p-4 bg-white/5 rounded-lg backdrop-blur-sm">
                 <div className="text-4xl mb-2">👨‍🚀</div>
                 <h3 className="text-lg font-bold text-purple-400 mb-2">Starman</h3>
                 <p className="text-gray-300 text-sm">
-                  A mannequin in a SpaceX suit sits in the driver's seat
+                  A mannequin in a SpaceX suit sits in the driver&apos;s seat
                 </p>
               </div>
               <div className="text-center p-4 bg-white/5 rounded-lg backdrop-blur-sm">
                 <div className="text-4xl mb-2">📚</div>
                 <h3 className="text-lg font-bold text-green-400 mb-2">Hitchhiker's Guide</h3>
                 <p className="text-gray-300 text-sm">
-                  "DON'T PANIC!" is displayed on the dashboard screen
+                  &quot;DON&apos;T PANIC!&quot; is displayed on the dashboard screen
                 </p>
               </div>
             </div>

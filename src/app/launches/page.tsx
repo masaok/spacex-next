@@ -239,7 +239,7 @@ export default function LaunchesPage() {
 
           {/* Launches Timeline */}
           <div className="space-y-6">
-            {filteredLaunches.map((launch, index) => {
+            {filteredLaunches.map((launch) => {
               const launchDate = DateTime.fromISO(launch.date_utc);
               const isUpcoming = launch.upcoming;
               const variant = isUpcoming ? 'neon' : launch.success ? 'gradient' : 'glass';

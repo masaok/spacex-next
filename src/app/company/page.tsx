@@ -102,9 +102,6 @@ export default function CompanyPage() {
     }).format(value);
   };
 
-  const formatNumber = (value: number) => {
-    return new Intl.NumberFormat('en-US').format(value);
-  };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 py-8">
@@ -251,7 +248,7 @@ export default function CompanyPage() {
                 onClick={() => window.open(company.links.elon_twitter, '_blank')}
                 variant="secondary"
               >
-                👨‍🚀 Elon's Twitter
+                👨‍🚀 Elon&apos;s Twitter
               </GlowingButton>
               <GlowingButton
                 onClick={() => window.open(company.links.flickr, '_blank')}
