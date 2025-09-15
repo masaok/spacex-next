@@ -62,7 +62,7 @@ export default function RoadsterPage() {
   }, []);
 
   useEffect(() => {
-    if (roadster?.flickr_images?.length > 1) {
+    if (roadster?.flickr_images && roadster.flickr_images.length > 1) {
       const interval = setInterval(() => {
         setCurrentImageIndex((prev) => (prev + 1) % roadster.flickr_images.length);
       }, 5000);
