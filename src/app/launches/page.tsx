@@ -1,9 +1,10 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import Image from 'next/image';
 import { useLanguageStore } from '../../store/languageStore';
 import { getTranslation } from '../../translations/translations';
+import { LaunchPatchImage } from '../../components/OptimizedImage';
+import { Breadcrumbs } from '../../components/Breadcrumbs';
 
 interface Launch {
   id: string;
@@ -108,6 +109,8 @@ export default function LaunchesPage() {
 
   return (
     <div className="container mx-auto px-4 py-8">
+      <Breadcrumbs items={[{ label: t.launches.title }]} />
+
       <div className="text-center mb-12">
         <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">{t.launches.title}</h1>
         <p className="text-xl text-gray-400">{t.launches.subtitle}</p>
@@ -127,12 +130,9 @@ export default function LaunchesPage() {
               <div className="flex justify-between items-start mb-4">
                 <div className="flex items-center gap-4">
                   {launch.links.patch.small && (
-                    <Image
+                    <LaunchPatchImage
                       src={launch.links.patch.small}
-                      alt={`${launch.name} patch`}
-                      width={64}
-                      height={64}
-                      className="w-16 h-16 object-contain"
+                      launchName={launch.name}
                     />
                   )}
                   <h2 className="text-2xl font-semibold">{launch.name}</h2>

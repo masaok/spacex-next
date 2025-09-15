@@ -4,30 +4,30 @@ import { persist } from 'zustand/middleware';
 export interface Language {
   code: string;
   name: string;
-  flag: string;
+  countryCode: string;
 }
 
 export const SUPPORTED_LANGUAGES: Language[] = [
-  { code: 'en', name: 'English', flag: '🇺🇸' },
-  { code: 'zh', name: '中文', flag: '🇨🇳' },
-  { code: 'hi', name: 'हिन्दी', flag: '🇮🇳' },
-  { code: 'es', name: 'Español', flag: '🇪🇸' },
-  { code: 'fr', name: 'Français', flag: '🇫🇷' },
-  { code: 'ar', name: 'العربية', flag: '🇸🇦' },
-  { code: 'bn', name: 'বাংলা', flag: '🇧🇩' },
-  { code: 'ru', name: 'Русский', flag: '🇷🇺' },
-  { code: 'pt', name: 'Português', flag: '🇧🇷' },
-  { code: 'id', name: 'Bahasa Indonesia', flag: '🇮🇩' },
-  { code: 'ur', name: 'اردو', flag: '🇵🇰' },
-  { code: 'de', name: 'Deutsch', flag: '🇩🇪' },
-  { code: 'ja', name: '日本語', flag: '🇯🇵' },
-  { code: 'sw', name: 'Kiswahili', flag: '🇹🇿' },
-  { code: 'mr', name: 'मराठी', flag: '🇮🇳' },
-  { code: 'te', name: 'తెలుగు', flag: '🇮🇳' },
-  { code: 'tr', name: 'Türkçe', flag: '🇹🇷' },
-  { code: 'ta', name: 'தமிழ்', flag: '🇮🇳' },
-  { code: 'vi', name: 'Tiếng Việt', flag: '🇻🇳' },
-  { code: 'ko', name: '한국어', flag: '🇰🇷' },
+  { code: 'en', name: 'English', countryCode: 'US' },
+  { code: 'zh', name: '中文', countryCode: 'CN' },
+  { code: 'hi', name: 'हिन्दी', countryCode: 'IN' },
+  { code: 'es', name: 'Español', countryCode: 'ES' },
+  { code: 'fr', name: 'Français', countryCode: 'FR' },
+  { code: 'ar', name: 'العربية', countryCode: 'SA' },
+  { code: 'bn', name: 'বাংলা', countryCode: 'BD' },
+  { code: 'ru', name: 'Русский', countryCode: 'RU' },
+  { code: 'pt', name: 'Português', countryCode: 'BR' },
+  { code: 'id', name: 'Bahasa Indonesia', countryCode: 'ID' },
+  { code: 'ur', name: 'اردو', countryCode: 'PK' },
+  { code: 'de', name: 'Deutsch', countryCode: 'DE' },
+  { code: 'ja', name: '日本語', countryCode: 'JP' },
+  { code: 'sw', name: 'Kiswahili', countryCode: 'TZ' },
+  { code: 'mr', name: 'मराठी', countryCode: 'IN' },
+  { code: 'te', name: 'తెలుగు', countryCode: 'IN' },
+  { code: 'tr', name: 'Türkçe', countryCode: 'TR' },
+  { code: 'ta', name: 'தமிழ்', countryCode: 'IN' },
+  { code: 'vi', name: 'Tiếng Việt', countryCode: 'VN' },
+  { code: 'ko', name: '한국어', countryCode: 'KR' },
 ];
 
 interface LanguageStore {

@@ -1,0 +1,45 @@
+# robots.txt for SpaceLaunchDB
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://spacelaunchdb.com/sitemap.xml
+
+# Crawl delay for respectful crawling
+Crawl-delay: 1
+
+# Allow all major search engine bots
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: Baiduspider
+Allow: /
+
+User-agent: YandexBot
+Allow: /
+
+# Block access to admin or sensitive areas (if any)
+Disallow: /api/
+Disallow: /_next/static/
+Disallow: /.well-known/
+
+# Allow access to images and assets
+Allow: /images/
+Allow: /favicon.ico
+Allow: /*.css
+Allow: /*.js
+Allow: /*.png
+Allow: /*.jpg
+Allow: /*.jpeg
+Allow: /*.gif
+Allow: /*.svg
+Allow: /*.webp

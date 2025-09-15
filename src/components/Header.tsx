@@ -5,6 +5,7 @@ import { useState } from 'react';
 import { useLanguageStore, SUPPORTED_LANGUAGES } from '../store/languageStore';
 import { getTranslation } from '../translations/translations';
 import { APP_NAME } from '../config/app.config';
+import Image from 'next/image';
 
 export default function Header() {
   const { currentLanguage, setLanguage, getCurrentLanguage } = useLanguageStore();
@@ -54,7 +55,13 @@ export default function Header() {
                 aria-expanded={isDropdownOpen}
                 aria-haspopup="true"
               >
-                <span className="text-lg">{currentLang.flag}</span>
+                <Image
+                  src={`https://flagcdn.com/24x18/${currentLang.countryCode.toLowerCase()}.png`}
+                  alt={`${currentLang.name} flag`}
+                  width={24}
+                  height={18}
+                  className="rounded-sm"
+                />
                 <span>{currentLang.name}</span>
                 <svg
                   className={`w-4 h-4 transition-transform ${isDropdownOpen ? 'rotate-180' : ''}`}
@@ -80,7 +87,13 @@ export default function Header() {
                             : 'text-gray-300'
                         }`}
                       >
-                        <span className="text-lg">{language.flag}</span>
+                        <Image
+                          src={`https://flagcdn.com/20x15/${language.countryCode.toLowerCase()}.png`}
+                          alt={`${language.name} flag`}
+                          width={20}
+                          height={15}
+                          className="rounded-sm"
+                        />
                         <span>{language.name}</span>
                         {currentLanguage === language.code && (
                           <svg className="w-4 h-4 ml-auto" fill="currentColor" viewBox="0 0 20 20">
@@ -141,7 +154,13 @@ export default function Header() {
                           : 'text-gray-300 hover:bg-gray-700'
                       }`}
                     >
-                      <span>{language.flag}</span>
+                      <Image
+                        src={`https://flagcdn.com/16x12/${language.countryCode.toLowerCase()}.png`}
+                        alt={`${language.name} flag`}
+                        width={16}
+                        height={12}
+                        className="rounded-sm"
+                      />
                       <span className="text-xs">{language.name}</span>
                     </button>
                   ))}

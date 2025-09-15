@@ -1,9 +1,10 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import Image from 'next/image';
 import { useLanguageStore } from '../../store/languageStore';
 import { getTranslation } from '../../translations/translations';
+import { VehicleImage } from '../../components/OptimizedImage';
+import { Breadcrumbs } from '../../components/Breadcrumbs';
 
 interface Vehicle {
   id: string;
@@ -80,7 +81,12 @@ export default function VehiclesPage() {
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <h1 className="text-4xl font-bold mb-8">SpaceX Vehicles</h1>
+      <Breadcrumbs items={[{ label: t.vehicles.title }]} />
+
+      <div className="text-center mb-12">
+        <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">{t.vehicles.title}</h1>
+        <p className="text-xl text-gray-400">{t.vehicles.subtitle}</p>
+      </div>
 
       <div className="grid gap-8">
         {vehicles.map((vehicle) => (
@@ -164,13 +170,10 @@ export default function VehiclesPage() {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                   {vehicle.flickr_images.map((image, index) => (
                     <div key={index} className="aspect-video overflow-hidden rounded-lg">
-                      <Image
+                      <VehicleImage
                         src={image}
-                        alt={`${vehicle.name} image ${index + 1}`}
-                        width={400}
-                        height={225}
-                        className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-                        loading="lazy"
+                        vehicleName={vehicle.name}
+                        imageIndex={index}
                       />
                     </div>
                   ))}

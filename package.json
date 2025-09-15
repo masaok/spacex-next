@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@apollo/client": "^4.0.5",
+    "country-flag-icons": "^1.5.20",
     "graphql": "^16.11.0",
     "next": "15.5.3",
     "react": "19.1.0",
