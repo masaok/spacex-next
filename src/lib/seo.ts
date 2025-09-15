@@ -180,3 +180,183 @@ export const vehiclesPageSEO = {
   ],
   canonical: '/vehicles',
 };
+
+export const capsulesPageSEO = {
+  title: 'Dragon Capsules - SpaceX Spacecraft Database',
+  description: 'Explore SpaceX Dragon capsule fleet with detailed specifications, mission history, and status. Complete database of Crew Dragon and Cargo Dragon capsules.',
+  keywords: [
+    'Dragon capsules',
+    'Crew Dragon',
+    'Cargo Dragon',
+    'SpaceX spacecraft',
+    'capsule specifications',
+    'space station missions',
+    'reusable spacecraft'
+  ],
+  canonical: '/capsules',
+};
+
+export const companyPageSEO = {
+  title: 'SpaceX Company Information - About Space Exploration Technologies',
+  description: 'Learn about SpaceX company history, headquarters, valuation, employees, and mission to revolutionize space technology and enable Mars colonization.',
+  keywords: [
+    'SpaceX company',
+    'Elon Musk',
+    'space exploration technologies',
+    'Mars colonization',
+    'rocket development',
+    'space industry',
+    'aerospace company'
+  ],
+  canonical: '/company',
+};
+
+export const coresPageSEO = {
+  title: 'Falcon Rocket Cores - Reusable First Stage Database',
+  description: 'Track SpaceX Falcon rocket cores with flight history, landing attempts, reuse statistics, and current status. Complete core database.',
+  keywords: [
+    'Falcon cores',
+    'reusable rockets',
+    'first stage',
+    'landing statistics',
+    'core reuse',
+    'rocket recovery',
+    'SpaceX boosters'
+  ],
+  canonical: '/cores',
+};
+
+export const crewPageSEO = {
+  title: 'SpaceX Crew Members - Astronaut Database',
+  description: 'Meet SpaceX crew members who have flown on Dragon missions. Detailed profiles of astronauts, their missions, and space achievements.',
+  keywords: [
+    'SpaceX crew',
+    'astronauts',
+    'Dragon crew',
+    'space missions',
+    'crew members',
+    'space explorers',
+    'human spaceflight'
+  ],
+  canonical: '/crew',
+};
+
+export const dragonsPageSEO = {
+  title: 'Dragon Spacecraft Versions - Capsule Evolution',
+  description: 'Explore Dragon spacecraft evolution from Dragon 1 to Crew Dragon. Technical specifications, capabilities, and development history.',
+  keywords: [
+    'Dragon spacecraft',
+    'Dragon evolution',
+    'Crew Dragon',
+    'Dragon 1',
+    'spacecraft development',
+    'space capsule technology',
+    'human rated spacecraft'
+  ],
+  canonical: '/dragons',
+};
+
+export const landpadsPageSEO = {
+  title: 'SpaceX Landing Pads - Recovery Infrastructure',
+  description: 'Discover SpaceX landing facilities including drone ships, landing pads, and recovery infrastructure. Detailed information on rocket recovery systems.',
+  keywords: [
+    'SpaceX landing pads',
+    'drone ships',
+    'rocket recovery',
+    'landing infrastructure',
+    'autonomous spaceport',
+    'rocket landing',
+    'recovery systems'
+  ],
+  canonical: '/landpads',
+};
+
+export const launchpadsPageSEO = {
+  title: 'SpaceX Launch Facilities - Launch Pad Database',
+  description: 'Complete guide to SpaceX launch facilities at Kennedy Space Center, Vandenberg, and Starbase. Launch pad specifications and capabilities.',
+  keywords: [
+    'SpaceX launch pads',
+    'Kennedy Space Center',
+    'Vandenberg',
+    'Starbase',
+    'launch facilities',
+    'rocket launch sites',
+    'space infrastructure'
+  ],
+  canonical: '/launchpads',
+};
+
+export const payloadsPageSEO = {
+  title: 'SpaceX Mission Payloads - Satellite & Cargo Database',
+  description: 'Explore SpaceX mission payloads including satellites, cargo, and space station supplies. Complete payload database with mission details.',
+  keywords: [
+    'SpaceX payloads',
+    'satellite deployment',
+    'space cargo',
+    'mission payloads',
+    'ISS supplies',
+    'commercial satellites',
+    'space logistics'
+  ],
+  canonical: '/payloads',
+};
+
+export const roadsterPageSEO = {
+  title: 'Tesla Roadster in Space - Live Tracking Data',
+  description: 'Track Elon Musk\'s Tesla Roadster currently orbiting in space. Live position data, orbital mechanics, and journey through the solar system.',
+  keywords: [
+    'Tesla Roadster space',
+    'Starman',
+    'Falcon Heavy test',
+    'space car',
+    'orbital tracking',
+    'solar system journey',
+    'space oddity'
+  ],
+  canonical: '/roadster',
+};
+
+export const shipsPageSEO = {
+  title: 'SpaceX Fleet - Recovery Ships & Support Vessels',
+  description: 'Complete SpaceX maritime fleet including drone ships, recovery vessels, and support ships. Detailed specifications and mission history.',
+  keywords: [
+    'SpaceX ships',
+    'drone ships',
+    'recovery fleet',
+    'maritime operations',
+    'autonomous spaceport',
+    'rocket recovery ships',
+    'support vessels'
+  ],
+  canonical: '/ships',
+};
+
+export const starlinkPageSEO = {
+  title: 'Starlink Satellites - Constellation Database',
+  description: 'Track Starlink satellite constellation with live orbital data. Satellite specifications, deployment missions, and network coverage.',
+  keywords: [
+    'Starlink satellites',
+    'satellite constellation',
+    'internet satellites',
+    'orbital data',
+    'space internet',
+    'satellite deployment',
+    'global connectivity'
+  ],
+  canonical: '/starlink',
+};
+
+export const historyPageSEO = {
+  title: 'SpaceX History - Milestones & Achievements',
+  description: 'Explore SpaceX historical milestones from first Falcon 1 launch to Mars missions. Complete timeline of space exploration achievements.',
+  keywords: [
+    'SpaceX history',
+    'space milestones',
+    'rocket achievements',
+    'space exploration timeline',
+    'SpaceX firsts',
+    'space industry evolution',
+    'aerospace milestones'
+  ],
+  canonical: '/history',
+};

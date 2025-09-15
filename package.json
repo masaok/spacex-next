@@ -12,8 +12,11 @@
   },
   "dependencies": {
     "@apollo/client": "^4.0.5",
+    "@types/luxon": "^3.7.1",
+    "axios": "^1.12.2",
     "country-flag-icons": "^1.5.20",
     "graphql": "^16.11.0",
+    "luxon": "^3.7.2",
     "next": "15.5.3",
     "react": "19.1.0",
     "react-dom": "19.1.0",

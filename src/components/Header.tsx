@@ -33,7 +33,7 @@ export default function Header() {
           </div>
 
           {/* Navigation Links */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-6">
             <Link
               href="/launches"
               className="text-gray-300 hover:text-white transition-colors font-medium"
@@ -45,6 +45,36 @@ export default function Header() {
               className="text-gray-300 hover:text-white transition-colors font-medium"
             >
               {t.header.vehicles}
+            </Link>
+            <Link
+              href="/capsules"
+              className="text-gray-300 hover:text-white transition-colors font-medium"
+            >
+              {t.header.capsules}
+            </Link>
+            <Link
+              href="/crew"
+              className="text-gray-300 hover:text-white transition-colors font-medium"
+            >
+              {t.header.crew}
+            </Link>
+            <Link
+              href="/cores"
+              className="text-gray-300 hover:text-white transition-colors font-medium"
+            >
+              {t.header.cores}
+            </Link>
+            <Link
+              href="/company"
+              className="text-gray-300 hover:text-white transition-colors font-medium"
+            >
+              {t.header.company}
+            </Link>
+            <Link
+              href="/roadster"
+              className="text-gray-300 hover:text-white transition-colors font-medium"
+            >
+              🚗 {t.header.roadster}
             </Link>
 
             {/* Language Dropdown */}
@@ -138,6 +168,41 @@ export default function Header() {
                 onClick={() => setIsDropdownOpen(false)}
               >
                 {t.header.vehicles}
+              </Link>
+              <Link
+                href="/capsules"
+                className="block text-gray-300 hover:text-white transition-colors font-medium py-2"
+                onClick={() => setIsDropdownOpen(false)}
+              >
+                {t.header.capsules}
+              </Link>
+              <Link
+                href="/crew"
+                className="block text-gray-300 hover:text-white transition-colors font-medium py-2"
+                onClick={() => setIsDropdownOpen(false)}
+              >
+                {t.header.crew}
+              </Link>
+              <Link
+                href="/cores"
+                className="block text-gray-300 hover:text-white transition-colors font-medium py-2"
+                onClick={() => setIsDropdownOpen(false)}
+              >
+                {t.header.cores}
+              </Link>
+              <Link
+                href="/company"
+                className="block text-gray-300 hover:text-white transition-colors font-medium py-2"
+                onClick={() => setIsDropdownOpen(false)}
+              >
+                {t.header.company}
+              </Link>
+              <Link
+                href="/roadster"
+                className="block text-gray-300 hover:text-white transition-colors font-medium py-2"
+                onClick={() => setIsDropdownOpen(false)}
+              >
+                🚗 {t.header.roadster}
               </Link>
 
               {/* Mobile Language Selection */}
