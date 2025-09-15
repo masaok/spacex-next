@@ -204,7 +204,7 @@ export const zh = {
     starman: "星人",
     starmanDesc: "穿着SpaceX太空服的人体模型坐在驾驶座上",
     hitchhikersGuide: "银河系漫游指南",
-    hitchhikersDesc: "仪表板屏幕上显示"不要恐慌！"",
+    hitchhikersDesc: "仪表板屏幕上显示「不要恐慌！」",
     learnMore: "了解更多",
     wikipedia: "维基百科",
     launchVideo: "发射视频",
