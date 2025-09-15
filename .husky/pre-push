@@ -1,1 +1,1 @@
-bun test 2>/dev/null || echo "No tests found, skipping test step"
+bun run build

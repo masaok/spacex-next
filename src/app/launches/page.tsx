@@ -18,8 +18,8 @@ interface Launch {
       large: string | null;
     };
   };
-  rocket: string;
-  launchpad: string;
+  rocket: string | RocketInfo;
+  launchpad: string | LaunchpadInfo;
 }
 
 interface RocketInfo {
@@ -71,10 +71,10 @@ export default function LaunchesPage() {
 
         launchesData.docs.forEach((launch: Launch) => {
           if (launch.rocket && typeof launch.rocket === 'object') {
-            rocketsMap[launch.rocket.id || launch.rocket] = launch.rocket;
+            rocketsMap[launch.rocket.id] = launch.rocket;
           }
           if (launch.launchpad && typeof launch.launchpad === 'object') {
-            launchpadsMap[launch.launchpad.id || launch.launchpad] = launch.launchpad;
+            launchpadsMap[launch.launchpad.id] = launch.launchpad;
           }
         });
 
