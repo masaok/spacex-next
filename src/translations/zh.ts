@@ -16,6 +16,16 @@ export const zh = {
       exploreLaunches: "探索发射",
       viewFleet: "查看舰队",
     },
+    dashboard: {
+      title: "任务仪表板",
+      subtitle: "SpaceX运营的实时数据和全面洞察",
+    },
+    stats: {
+      successfulLaunches: "成功发射",
+      activeVehicles: "活跃载具",
+      successRate: "成功率",
+      possibilities: "可能性",
+    },
     sections: {
       launches: {
         title: "发射历史",

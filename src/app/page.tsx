@@ -64,10 +64,10 @@ export default function Home() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-              Mission Dashboard
+              {t.home.dashboard.title}
             </h2>
             <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-              Real-time data and comprehensive insights into SpaceX operations
+              {t.home.dashboard.subtitle}
             </p>
           </div>
 
@@ -129,19 +129,19 @@ export default function Home() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             <div className="text-center">
               <div className="text-4xl md:text-5xl font-bold text-white mb-2">200+</div>
-              <div className="text-gray-400">Successful Launches</div>
+              <div className="text-gray-400">{t.home.stats.successfulLaunches}</div>
             </div>
             <div className="text-center">
               <div className="text-4xl md:text-5xl font-bold text-white mb-2">4</div>
-              <div className="text-gray-400">Active Vehicles</div>
+              <div className="text-gray-400">{t.home.stats.activeVehicles}</div>
             </div>
             <div className="text-center">
               <div className="text-4xl md:text-5xl font-bold text-white mb-2">95%</div>
-              <div className="text-gray-400">Success Rate</div>
+              <div className="text-gray-400">{t.home.stats.successRate}</div>
             </div>
             <div className="text-center">
               <div className="text-4xl md:text-5xl font-bold text-white mb-2">∞</div>
-              <div className="text-gray-400">Possibilities</div>
+              <div className="text-gray-400">{t.home.stats.possibilities}</div>
             </div>
           </div>
         </div>

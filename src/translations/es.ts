@@ -16,6 +16,16 @@ export const es = {
       exploreLaunches: "Explorar Lanzamientos",
       viewFleet: "Ver Flota",
     },
+    dashboard: {
+      title: "Panel de Misión",
+      subtitle: "Datos en tiempo real e información completa sobre las operaciones de SpaceX",
+    },
+    stats: {
+      successfulLaunches: "Lanzamientos Exitosos",
+      activeVehicles: "Vehículos Activos",
+      successRate: "Tasa de Éxito",
+      possibilities: "Posibilidades",
+    },
     sections: {
       launches: {
         title: "Historial de Lanzamientos",
