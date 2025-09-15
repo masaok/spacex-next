@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 import Header from "../components/Header";
+import Footer from "../components/Footer";
 import { generateSEOMetadata, homePageSEO } from "../lib/seo";
 import { HomePageSchema } from "../components/StructuredData";
 import { PerformanceMonitor } from "../components/PerformanceMonitor";
@@ -52,8 +53,11 @@ export default function RootLayout({
         )}
         <GoogleAnalytics gaId={GOOGLE_ANALYTICS_ID} />
         <PerformanceMonitor />
-        <Header />
-        <main>{children}</main>
+        <div className="min-h-screen flex flex-col">
+          <Header />
+          <main className="flex-grow">{children}</main>
+          <Footer />
+        </div>
       </body>
     </html>
   );
