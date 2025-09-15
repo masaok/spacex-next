@@ -258,6 +258,12 @@ export const es = {
     launchVideo: "Video de Lanzamiento",
     liveTracker: "Rastreador en Vivo",
   },
+  // Footer translations
+  footer: {
+    dataProvided: "Datos proporcionados por SpaceX API • Construido con Next.js y Tailwind CSS",
+    tagline: "Explorando el cosmos, un lanzamiento a la vez 🌌",
+  },
+
   common: {
     loading: "Cargando...",
     error: "Ocurrió un error",

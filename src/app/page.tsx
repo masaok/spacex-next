@@ -151,10 +151,10 @@ export default function Home() {
       <footer className="py-12 px-6 border-t border-slate-800">
         <div className="max-w-6xl mx-auto text-center">
           <div className="text-gray-400 mb-4">
-            Data provided by SpaceX API • Built with Next.js & Tailwind CSS
+            {t.footer.dataProvided}
           </div>
           <div className="text-sm text-gray-500">
-            Exploring the cosmos, one launch at a time 🌌
+            {t.footer.tagline}
           </div>
         </div>
       </footer>

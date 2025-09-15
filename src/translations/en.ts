@@ -276,6 +276,12 @@ export const en = {
     liveTracker: "Live Tracker",
   },
 
+  // Footer translations
+  footer: {
+    dataProvided: "Data provided by SpaceX API • Built with Next.js & Tailwind CSS",
+    tagline: "Exploring the cosmos, one launch at a time 🌌",
+  },
+
   // Common translations
   common: {
     loading: "Loading...",

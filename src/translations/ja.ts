@@ -276,6 +276,12 @@ export const ja = {
     liveTracker: "ライブトラッカー",
   },
 
+  // Footer translations
+  footer: {
+    dataProvided: "データは SpaceX API から提供 • Next.js と Tailwind CSS で構築",
+    tagline: "宇宙を探索し、一度に一つの打ち上げ 🌌",
+  },
+
   // Common translations
   common: {
     loading: "読み込み中...",

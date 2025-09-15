@@ -258,6 +258,12 @@ export const zh = {
     launchVideo: "发射视频",
     liveTracker: "实时跟踪器",
   },
+  // Footer translations
+  footer: {
+    dataProvided: "数据由 SpaceX API 提供 • 使用 Next.js 和 Tailwind CSS 构建",
+    tagline: "探索宇宙，一次发射一个 🌌",
+  },
+
   common: {
     loading: "正在加载...",
     error: "发生错误",
