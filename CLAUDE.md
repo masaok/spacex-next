@@ -1,0 +1,9 @@
+- use bun instead of npm when possible
+- always use async/await
+- do not verify build unless told to.  use `bun ci` instead.
+- Always use Luxon instead of JSDate if possible
+- never build or push unless told to do so.
+- Always show commit hash after commit and push
+- Always use Axios instead of fetch
+- Never use --no-verify
+- Never use --no-verify
