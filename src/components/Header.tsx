@@ -50,25 +50,25 @@ export default function Header() {
               href="/capsules"
               className="text-gray-300 hover:text-white transition-colors font-medium"
             >
-              Capsules
+              {t.header.capsules}
             </Link>
             <Link
               href="/crew"
               className="text-gray-300 hover:text-white transition-colors font-medium"
             >
-              Crew
+              {t.header.crew}
             </Link>
             <Link
               href="/cores"
               className="text-gray-300 hover:text-white transition-colors font-medium"
             >
-              Cores
+              {t.header.cores}
             </Link>
             <Link
               href="/company"
               className="text-gray-300 hover:text-white transition-colors font-medium"
             >
-              Company
+              {t.header.company}
             </Link>
             <Link
               href="/roadster"
@@ -174,35 +174,35 @@ export default function Header() {
                 className="block text-gray-300 hover:text-white transition-colors font-medium py-2"
                 onClick={() => setIsDropdownOpen(false)}
               >
-                Capsules
+                {t.header.capsules}
               </Link>
               <Link
                 href="/crew"
                 className="block text-gray-300 hover:text-white transition-colors font-medium py-2"
                 onClick={() => setIsDropdownOpen(false)}
               >
-                Crew
+                {t.header.crew}
               </Link>
               <Link
                 href="/cores"
                 className="block text-gray-300 hover:text-white transition-colors font-medium py-2"
                 onClick={() => setIsDropdownOpen(false)}
               >
-                Cores
+                {t.header.cores}
               </Link>
               <Link
                 href="/company"
                 className="block text-gray-300 hover:text-white transition-colors font-medium py-2"
                 onClick={() => setIsDropdownOpen(false)}
               >
-                Company
+                {t.header.company}
               </Link>
               <Link
                 href="/roadster"
                 className="block text-gray-300 hover:text-white transition-colors font-medium py-2"
                 onClick={() => setIsDropdownOpen(false)}
               >
-                🚗 Roadster
+                🚗 {t.header.roadster}
               </Link>
 
               {/* Mobile Language Selection */}
