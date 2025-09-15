@@ -36,7 +36,7 @@ export default function Home() {
                 </span>
               </h1>
               <p className="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed">
-                Discover SpaceX's revolutionary missions, cutting-edge vehicles, and the journey to make life multiplanetary. From historic launches to next-generation spacecraft.
+                Discover SpaceX&apos;s revolutionary missions, cutting-edge vehicles, and the journey to make life multiplanetary. From historic launches to next-generation spacecraft.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link
@@ -93,7 +93,7 @@ export default function Home() {
                   </div>
                 </div>
                 <p className="text-gray-300 mb-6 leading-relaxed">
-                  Explore every SpaceX launch from Falcon 1's first flight to the latest Starship missions. View detailed mission data, success rates, and launch statistics.
+                  Explore every SpaceX launch from Falcon 1&apos;s first flight to the latest Starship missions. View detailed mission data, success rates, and launch statistics.
                 </p>
                 <div className="flex items-center text-blue-400 group-hover:text-blue-300">
                   <span className="font-semibold">Explore Launches</span>
@@ -117,7 +117,7 @@ export default function Home() {
                   </div>
                 </div>
                 <p className="text-gray-300 mb-6 leading-relaxed">
-                  Discover SpaceX's revolutionary vehicles from Falcon 9 to Starship. View detailed specifications, capabilities, and stunning photography of each rocket.
+                  Discover SpaceX&apos;s revolutionary vehicles from Falcon 9 to Starship. View detailed specifications, capabilities, and stunning photography of each rocket.
                 </p>
                 <div className="flex items-center text-purple-400 group-hover:text-purple-300">
                   <span className="font-semibold">View Fleet</span>

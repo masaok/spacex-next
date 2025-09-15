@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import Image from 'next/image';
 
 interface Launch {
   id: string;
@@ -68,7 +69,7 @@ export default function LaunchesPage() {
         const rocketsMap: Record<string, RocketInfo> = {};
         const launchpadsMap: Record<string, LaunchpadInfo> = {};
 
-        launchesData.docs.forEach((launch: any) => {
+        launchesData.docs.forEach((launch: Launch) => {
           if (launch.rocket && typeof launch.rocket === 'object') {
             rocketsMap[launch.rocket.id || launch.rocket] = launch.rocket;
           }
@@ -119,9 +120,11 @@ export default function LaunchesPage() {
               <div className="flex justify-between items-start mb-4">
                 <div className="flex items-center gap-4">
                   {launch.links.patch.small && (
-                    <img
+                    <Image
                       src={launch.links.patch.small}
                       alt={`${launch.name} patch`}
+                      width={64}
+                      height={64}
                       className="w-16 h-16 object-contain"
                     />
                   )}

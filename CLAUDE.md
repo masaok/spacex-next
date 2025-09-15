@@ -4,6 +4,10 @@
 - Use bun instead of npm when possible
 - Never build or push unless told to do so.
 
+### Linting
+
+- Always fix linting all warnings and errors
+
 ### GitHub
 
 - Always show commit hash after commit and push
