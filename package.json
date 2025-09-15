@@ -7,7 +7,7 @@
     "build": "next build --turbopack",
     "start": "next start",
     "lint": "eslint",
-    "ci": "bun run lint && bun run tsx",
+    "ci": "bun run lint && bun run build",
     "prepare": "husky"
   },
   "dependencies": {
