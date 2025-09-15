@@ -250,19 +250,19 @@ export default function VehiclesPage() {
                         <h2 className="text-4xl font-bold text-white mb-2">
                           {vehicle.name}
                         </h2>
-                        <p className="text-gray-400 text-lg">{vehicle.type} • First Flight: {new Date(vehicle.first_flight).getFullYear()}</p>
+                        <p className="text-gray-400 text-lg">{vehicle.type} • {t.vehicles.firstFlight}: {new Date(vehicle.first_flight).getFullYear()}</p>
                       </div>
                       <div className="flex gap-3 mt-4 lg:mt-0">
                         <StatusBadge status={vehicle.active ? 'active' : 'inactive'} />
                         <div className="px-4 py-2 bg-gradient-to-r from-green-500/20 to-emerald-500/20 border border-green-500/30 rounded-full">
-                          <span className="text-green-400 font-bold">{vehicle.success_rate_pct}% Success</span>
+                          <span className="text-green-400 font-bold">{vehicle.success_rate_pct}% {t.vehicles.success}</span>
                         </div>
                       </div>
                     </div>
 
                     {/* Description */}
                     <p className="text-gray-300 text-lg leading-relaxed mb-8">
-                      {vehicle.description}
+                      {(t.vehicles.descriptions as Record<string, string>)?.[vehicle.id] || vehicle.description}
                     </p>
 
                     {/* Specs Grid */}

@@ -75,6 +75,7 @@ export const es = {
     firstFlight: "Primer vuelo",
     costPerLaunch: "Costo/Lanzamiento",
     successRate: "Tasa de éxito",
+    success: "Éxito",
     images: "Imágenes",
     description: "Descripción",
     totalVehicles: "Vehículos Totales",
@@ -97,6 +98,12 @@ export const es = {
     company: "Compañía",
     performance: "Rendimiento",
     status: "Estado",
+    descriptions: {
+      "5e9d0d95eda69955f709d1eb": "El Falcon 1 fue un sistema de lanzamiento desechable desarrollado y fabricado de forma privada por SpaceX durante 2006-2009. El 28 de septiembre de 2008, el Falcon 1 se convirtió en el primer vehículo de lanzamiento de combustible líquido desarrollado de forma privada en entrar en órbita alrededor de la Tierra.",
+      "5e9d0d95eda69973a809d1ec": "Falcon 9 es un cohete de dos etapas diseñado y fabricado por SpaceX para el transporte confiable y seguro de satélites y la nave espacial Dragon a la órbita.",
+      "5e9d0d95eda69974db09d1ed": "Con la capacidad de elevar a órbita más de 54 toneladas métricas (119,000 lb), una masa equivalente a un avión 737 cargado con pasajeros, tripulación, equipaje y combustible, el Falcon Heavy puede elevar más del doble de la carga útil del vehículo operacional más cercano, el Delta IV Heavy, a un tercio del costo.",
+      "5e9d0d96eda699382d09d1ee": "Starship y el cohete Super Heavy representan un sistema de transporte completamente reutilizable diseñado para atender todas las necesidades de órbita terrestre, así como la Luna y Marte. Este vehículo de dos etapas, compuesto por el cohete Super Heavy (propulsor) y Starship (nave), eventualmente reemplazará al Falcon 9, Falcon Heavy y Dragon."
+    }
   },
   capsules: {
     title: "Cápsulas Dragon",
