@@ -7,7 +7,7 @@ import { generateSEOMetadata, homePageSEO } from "../lib/seo";
 import { HomePageSchema } from "../components/StructuredData";
 import { PerformanceMonitor } from "../components/PerformanceMonitor";
 import { GoogleAnalytics } from '@next/third-parties/google';
-import { GOOGLE_ANALYTICS_ID } from '../config/app.config';
+import { GOOGLE_ANALYTICS_ID, GOOGLE_ANALYTICS_CONSENT_MODE } from '../config/app.config';
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -38,16 +38,18 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-black min-h-screen`}
       >
-        <Script
-          id="consent-manager"
-          type="text/javascript"
-          data-cmp-ab="1"
-          src="https://cdn.consentmanager.net/delivery/autoblocking/6785bc5732160.js"
-          data-cmp-host="c.delivery.consentmanager.net"
-          data-cmp-cdn="cdn.consentmanager.net"
-          data-cmp-codesrc="16"
-          strategy="beforeInteractive"
-        />
+        {GOOGLE_ANALYTICS_CONSENT_MODE && (
+          <Script
+            id="consent-manager"
+            type="text/javascript"
+            data-cmp-ab="1"
+            src="https://cdn.consentmanager.net/delivery/autoblocking/6785bc5732160.js"
+            data-cmp-host="c.delivery.consentmanager.net"
+            data-cmp-cdn="cdn.consentmanager.net"
+            data-cmp-codesrc="16"
+            strategy="beforeInteractive"
+          />
+        )}
         <GoogleAnalytics gaId={GOOGLE_ANALYTICS_ID} />
         <PerformanceMonitor />
         <Header />
