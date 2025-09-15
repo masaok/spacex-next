@@ -177,7 +177,13 @@ export default function CapsulesPage() {
                 <div className="p-6">
                   <div className="flex items-center justify-between mb-4">
                     <h3 className="text-2xl font-bold text-white">{capsule.serial}</h3>
-                    <StatusBadge status={capsule.status} />
+                    <StatusBadge status={
+                      capsule.status === 'active' ? 'active' :
+                      capsule.status === 'inactive' ? 'inactive' :
+                      capsule.status === 'destroyed' ? 'failure' :
+                      capsule.status === 'retired' ? 'inactive' :
+                      'inactive'
+                    } />
                   </div>
 
                   <div className="space-y-3">
