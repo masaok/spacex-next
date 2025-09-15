@@ -271,7 +271,7 @@ export default function RoadsterPage() {
               </div>
               <div className="text-center p-4 bg-white/5 rounded-lg backdrop-blur-sm">
                 <div className="text-4xl mb-2">📚</div>
-                <h3 className="text-lg font-bold text-green-400 mb-2">Hitchhiker's Guide</h3>
+                <h3 className="text-lg font-bold text-green-400 mb-2">Hitchhiker&apos;s Guide</h3>
                 <p className="text-gray-300 text-sm">
                   &quot;DON&apos;T PANIC!&quot; is displayed on the dashboard screen
                 </p>
