@@ -2,6 +2,8 @@
 
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
+import { useLanguageStore } from '../../store/languageStore';
+import { getTranslation } from '../../translations/translations';
 
 interface Launch {
   id: string;
@@ -35,6 +37,8 @@ interface LaunchpadInfo {
 }
 
 export default function LaunchesPage() {
+  const { currentLanguage } = useLanguageStore();
+  const t = getTranslation(currentLanguage);
   const [launches, setLaunches] = useState<Launch[]>([]);
   const [rockets, setRockets] = useState<Record<string, RocketInfo>>({});
   const [launchpads, setLaunchpads] = useState<Record<string, LaunchpadInfo>>({});
@@ -82,7 +86,7 @@ export default function LaunchesPage() {
         setLaunchpads(launchpadsMap);
         setLoading(false);
       } catch (err) {
-        setError(err instanceof Error ? err.message : 'An error occurred');
+        setError(err instanceof Error ? err.message : t.common.error);
         setLoading(false);
       }
     };
@@ -92,19 +96,22 @@ export default function LaunchesPage() {
 
   if (loading) return (
     <div className="flex justify-center items-center min-h-screen">
-      <div className="text-xl">Loading launches...</div>
+      <div className="text-xl">{t.launches.loading}</div>
     </div>
   );
 
   if (error) return (
     <div className="flex justify-center items-center min-h-screen">
-      <div className="text-xl text-red-500">Error: {error}</div>
+      <div className="text-xl text-red-500">{t.launches.error}: {error}</div>
     </div>
   );
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <h1 className="text-4xl font-bold mb-8">SpaceX Launches</h1>
+      <div className="text-center mb-12">
+        <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">{t.launches.title}</h1>
+        <p className="text-xl text-gray-400">{t.launches.subtitle}</p>
+      </div>
 
       <div className="grid gap-6">
         {launches.map((launch) => {

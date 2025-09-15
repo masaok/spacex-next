@@ -1,22 +1,15 @@
+'use client';
+
 import Link from "next/link";
+import { useLanguageStore } from "../store/languageStore";
+import { getTranslation } from "../translations/translations";
 
 export default function Home() {
+  const { currentLanguage } = useLanguageStore();
+  const t = getTranslation(currentLanguage);
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900">
-      {/* Navigation */}
-      <nav className="absolute top-0 w-full z-10 p-6">
-        <div className="max-w-7xl mx-auto flex justify-between items-center">
-          <div className="text-white text-xl font-bold">SpaceX Explorer</div>
-          <div className="hidden md:flex space-x-8">
-            <Link href="/launches" className="text-gray-300 hover:text-white transition-colors">
-              Launches
-            </Link>
-            <Link href="/vehicles" className="text-gray-300 hover:text-white transition-colors">
-              Vehicles
-            </Link>
-          </div>
-        </div>
-      </nav>
 
       {/* Hero Section */}
       <section className="relative overflow-hidden">
@@ -30,13 +23,12 @@ export default function Home() {
           <div className="relative z-10 flex items-center justify-center h-full">
             <div className="text-center text-white max-w-4xl mx-auto px-6">
               <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
-                Explore the Future of
                 <span className="block bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
-                  Space Travel
+                  {t.home.hero.title}
                 </span>
               </h1>
               <p className="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed">
-                Discover SpaceX&apos;s revolutionary missions, cutting-edge vehicles, and the journey to make life multiplanetary. From historic launches to next-generation spacecraft.
+                {t.home.hero.subtitle}
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link
@@ -44,7 +36,7 @@ export default function Home() {
                   className="group bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 transform hover:scale-105 hover:shadow-xl"
                 >
                   <span className="flex items-center justify-center">
-                    🚀 Latest Launches
+                    🚀 {t.home.hero.exploreLaunches}
                     <svg className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                     </svg>
@@ -55,7 +47,7 @@ export default function Home() {
                   className="group bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white border border-white/30 px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 transform hover:scale-105 hover:shadow-xl"
                 >
                   <span className="flex items-center justify-center">
-                    🛸 View Fleet
+                    🛸 {t.home.hero.viewFleet}
                     <svg className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                     </svg>
@@ -88,15 +80,15 @@ export default function Home() {
                     🚀
                   </div>
                   <div>
-                    <h3 className="text-2xl font-bold text-white">Launch History</h3>
-                    <p className="text-gray-400">Complete mission archive</p>
+                    <h3 className="text-2xl font-bold text-white">{t.home.sections.launches.title}</h3>
+                    <p className="text-gray-400">{t.home.sections.launches.subtitle}</p>
                   </div>
                 </div>
                 <p className="text-gray-300 mb-6 leading-relaxed">
-                  Explore every SpaceX launch from Falcon 1&apos;s first flight to the latest Starship missions. View detailed mission data, success rates, and launch statistics.
+                  {t.home.sections.launches.description}
                 </p>
                 <div className="flex items-center text-blue-400 group-hover:text-blue-300">
-                  <span className="font-semibold">Explore Launches</span>
+                  <span className="font-semibold">{t.home.sections.launches.cta}</span>
                   <svg className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                   </svg>
@@ -112,15 +104,15 @@ export default function Home() {
                     🛸
                   </div>
                   <div>
-                    <h3 className="text-2xl font-bold text-white">Vehicle Fleet</h3>
-                    <p className="text-gray-400">Rockets & spacecraft</p>
+                    <h3 className="text-2xl font-bold text-white">{t.home.sections.vehicles.title}</h3>
+                    <p className="text-gray-400">{t.home.sections.vehicles.subtitle}</p>
                   </div>
                 </div>
                 <p className="text-gray-300 mb-6 leading-relaxed">
-                  Discover SpaceX&apos;s revolutionary vehicles from Falcon 9 to Starship. View detailed specifications, capabilities, and stunning photography of each rocket.
+                  {t.home.sections.vehicles.description}
                 </p>
                 <div className="flex items-center text-purple-400 group-hover:text-purple-300">
-                  <span className="font-semibold">View Fleet</span>
+                  <span className="font-semibold">{t.home.sections.vehicles.cta}</span>
                   <svg className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                   </svg>

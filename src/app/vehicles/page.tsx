@@ -2,6 +2,8 @@
 
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
+import { useLanguageStore } from '../../store/languageStore';
+import { getTranslation } from '../../translations/translations';
 
 interface Vehicle {
   id: string;
@@ -39,6 +41,8 @@ interface Vehicle {
 }
 
 export default function VehiclesPage() {
+  const { currentLanguage } = useLanguageStore();
+  const t = getTranslation(currentLanguage);
   const [vehicles, setVehicles] = useState<Vehicle[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -54,7 +58,7 @@ export default function VehiclesPage() {
         setVehicles(data);
         setLoading(false);
       } catch (err) {
-        setError(err instanceof Error ? err.message : 'An error occurred');
+        setError(err instanceof Error ? err.message : t.common.error);
         setLoading(false);
       }
     };
@@ -64,13 +68,13 @@ export default function VehiclesPage() {
 
   if (loading) return (
     <div className="flex justify-center items-center min-h-screen">
-      <div className="text-xl">Loading vehicles...</div>
+      <div className="text-xl">{t.vehicles.loading}</div>
     </div>
   );
 
   if (error) return (
     <div className="flex justify-center items-center min-h-screen">
-      <div className="text-xl text-red-500">Error: {error}</div>
+      <div className="text-xl text-red-500">{t.vehicles.error}: {error}</div>
     </div>
   );
 
