@@ -152,10 +152,10 @@ export default function VehiclesPage() {
           {/* Header Section */}
           <div className="text-center mb-12">
             <h1 className="text-6xl font-bold bg-gradient-to-r from-purple-400 via-pink-400 to-cyan-400 bg-clip-text text-transparent mb-4">
-              🚀 Vehicle Fleet
+              🚀 {t.vehicles.title}
             </h1>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              Discover SpaceX&apos;s revolutionary rockets that are making space accessible to humanity
+              {t.vehicles.subtitle}
             </p>
           </div>
 
@@ -164,19 +164,19 @@ export default function VehiclesPage() {
             <ModernCard variant="gradient" hover={false}>
               <div className="text-center">
                 <AnimatedCounter value={vehicles.length} className="text-3xl" />
-                <p className="text-gray-300 mt-2">Total Vehicles</p>
+                <p className="text-gray-300 mt-2">{t.vehicles.totalVehicles}</p>
               </div>
             </ModernCard>
             <ModernCard variant="neon" hover={false}>
               <div className="text-center">
                 <AnimatedCounter value={activeVehicles} className="text-3xl text-green-400" />
-                <p className="text-gray-300 mt-2">Active Rockets</p>
+                <p className="text-gray-300 mt-2">{t.vehicles.activeRockets}</p>
               </div>
             </ModernCard>
             <ModernCard variant="glass" hover={false}>
               <div className="text-center">
                 <AnimatedCounter value={Math.round(averageSuccessRate)} suffix="%" className="text-3xl text-purple-400" />
-                <p className="text-gray-300 mt-2">Avg Success Rate</p>
+                <p className="text-gray-300 mt-2">{t.vehicles.avgSuccessRate}</p>
               </div>
             </ModernCard>
             <ModernCard variant="default" hover={false}>
@@ -184,7 +184,7 @@ export default function VehiclesPage() {
                 <div className="text-3xl font-bold bg-gradient-to-r from-yellow-400 to-orange-400 bg-clip-text text-transparent">
                   {Math.round(totalPayloadCapacity / 1000)}t
                 </div>
-                <p className="text-gray-300 mt-2">Total Payload</p>
+                <p className="text-gray-300 mt-2">{t.vehicles.totalPayload}</p>
               </div>
             </ModernCard>
           </div>
@@ -268,22 +268,22 @@ export default function VehiclesPage() {
                     {/* Specs Grid */}
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
                       <div className="bg-white/5 rounded-lg p-4">
-                        <p className="text-xs text-gray-400 mb-1">Height</p>
+                        <p className="text-xs text-gray-400 mb-1">{t.vehicles.height}</p>
                         <p className="text-xl font-bold text-cyan-400">{vehicle.height.meters}m</p>
                         <p className="text-xs text-gray-500">{vehicle.height.feet}ft</p>
                       </div>
                       <div className="bg-white/5 rounded-lg p-4">
-                        <p className="text-xs text-gray-400 mb-1">Diameter</p>
+                        <p className="text-xs text-gray-400 mb-1">{t.vehicles.diameter}</p>
                         <p className="text-xl font-bold text-purple-400">{vehicle.diameter.meters}m</p>
                         <p className="text-xs text-gray-500">{vehicle.diameter.feet}ft</p>
                       </div>
                       <div className="bg-white/5 rounded-lg p-4">
-                        <p className="text-xs text-gray-400 mb-1">Mass</p>
+                        <p className="text-xs text-gray-400 mb-1">{t.vehicles.mass}</p>
                         <p className="text-xl font-bold text-green-400">{(vehicle.mass.kg / 1000).toFixed(0)}t</p>
                         <p className="text-xs text-gray-500">{vehicle.mass.kg.toLocaleString()}kg</p>
                       </div>
                       <div className="bg-white/5 rounded-lg p-4">
-                        <p className="text-xs text-gray-400 mb-1">Cost/Launch</p>
+                        <p className="text-xs text-gray-400 mb-1">{t.vehicles.costPerLaunch}</p>
                         <p className="text-xl font-bold text-yellow-400">
                           ${(vehicle.cost_per_launch / 1000000).toFixed(0)}M
                         </p>
@@ -294,22 +294,22 @@ export default function VehiclesPage() {
                     {/* Engine Info */}
                     {vehicle.engines && (
                       <ModernCard variant="glass" className="mb-8">
-                        <h3 className="text-xl font-bold text-white mb-4">🔥 Engine Configuration</h3>
+                        <h3 className="text-xl font-bold text-white mb-4">🔥 {t.vehicles.engineConfiguration}</h3>
                         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                           <div>
-                            <p className="text-gray-400 text-sm">Type</p>
+                            <p className="text-gray-400 text-sm">{t.vehicles.type}</p>
                             <p className="text-white font-bold">{vehicle.engines.type}</p>
                           </div>
                           <div>
-                            <p className="text-gray-400 text-sm">Count</p>
+                            <p className="text-gray-400 text-sm">{t.vehicles.count}</p>
                             <p className="text-cyan-400 font-bold text-xl">{vehicle.engines.number}</p>
                           </div>
                           <div>
-                            <p className="text-gray-400 text-sm">Sea Level Thrust</p>
+                            <p className="text-gray-400 text-sm">{t.vehicles.seaLevelThrust}</p>
                             <p className="text-orange-400 font-bold">{vehicle.engines.thrust_sea_level.kN} kN</p>
                           </div>
                           <div>
-                            <p className="text-gray-400 text-sm">Vacuum Thrust</p>
+                            <p className="text-gray-400 text-sm">{t.vehicles.vacuumThrust}</p>
                             <p className="text-red-400 font-bold">{vehicle.engines.thrust_vacuum.kN} kN</p>
                           </div>
                         </div>
@@ -319,7 +319,7 @@ export default function VehiclesPage() {
                     {/* Payload Capacities */}
                     {vehicle.payload_weights.length > 0 && (
                       <div className="mb-8">
-                        <h3 className="text-xl font-bold text-white mb-4">📦 Payload Capacity</h3>
+                        <h3 className="text-xl font-bold text-white mb-4">📦 {t.vehicles.payloadCapacity}</h3>
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
                           {vehicle.payload_weights.map((payload) => (
                             <div key={payload.id} className="bg-gradient-to-r from-blue-500/10 to-purple-500/10 border border-blue-500/20 rounded-lg p-3">
@@ -340,14 +340,14 @@ export default function VehiclesPage() {
                         onClick={() => setSelectedVehicle(isExpanded ? null : vehicle.id)}
                         variant="primary"
                       >
-                        {isExpanded ? '➖ Show Less' : '➕ Technical Details'}
+                        {isExpanded ? `➖ ${t.vehicles.showLess}` : `➕ ${t.vehicles.technicalDetails}`}
                       </GlowingButton>
                       {vehicle.wikipedia && (
                         <GlowingButton
                           onClick={() => window.open(vehicle.wikipedia, '_blank')}
                           variant="secondary"
                         >
-                          📖 Wikipedia
+                          📖 {t.vehicles.wikipedia}
                         </GlowingButton>
                       )}
                     </div>
@@ -355,44 +355,44 @@ export default function VehiclesPage() {
                     {/* Expanded Technical Details */}
                     {isExpanded && (
                       <ModernCard variant="glass" className="mt-8">
-                        <h3 className="text-2xl font-bold text-white mb-6">📊 Technical Specifications</h3>
+                        <h3 className="text-2xl font-bold text-white mb-6">📊 {t.vehicles.technicalSpecifications}</h3>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                           <div>
-                            <h4 className="text-lg font-bold text-purple-400 mb-3">Structure</h4>
+                            <h4 className="text-lg font-bold text-purple-400 mb-3">{t.vehicles.structure}</h4>
                             <div className="space-y-2 text-sm">
                               <div className="flex justify-between">
-                                <span className="text-gray-400">Stages:</span>
+                                <span className="text-gray-400">{t.vehicles.stages}:</span>
                                 <span className="text-white font-medium">{vehicle.stages}</span>
                               </div>
                               <div className="flex justify-between">
-                                <span className="text-gray-400">Boosters:</span>
+                                <span className="text-gray-400">{t.vehicles.boosters}:</span>
                                 <span className="text-white font-medium">{vehicle.boosters || 0}</span>
                               </div>
                               <div className="flex justify-between">
-                                <span className="text-gray-400">Country:</span>
+                                <span className="text-gray-400">{t.vehicles.country}:</span>
                                 <span className="text-white font-medium">{vehicle.country}</span>
                               </div>
                               <div className="flex justify-between">
-                                <span className="text-gray-400">Company:</span>
+                                <span className="text-gray-400">{t.vehicles.company}:</span>
                                 <span className="text-white font-medium">{vehicle.company}</span>
                               </div>
                             </div>
                           </div>
                           <div>
-                            <h4 className="text-lg font-bold text-cyan-400 mb-3">Performance</h4>
+                            <h4 className="text-lg font-bold text-cyan-400 mb-3">{t.vehicles.performance}</h4>
                             <div className="space-y-2 text-sm">
                               <div className="flex justify-between">
-                                <span className="text-gray-400">Success Rate:</span>
+                                <span className="text-gray-400">{t.vehicles.successRate}:</span>
                                 <span className="text-green-400 font-bold">{vehicle.success_rate_pct}%</span>
                               </div>
                               <div className="flex justify-between">
-                                <span className="text-gray-400">Status:</span>
+                                <span className="text-gray-400">{t.vehicles.status}:</span>
                                 <span className={`font-medium ${vehicle.active ? 'text-green-400' : 'text-gray-400'}`}>
-                                  {vehicle.active ? '✅ Active' : '⏸️ Retired'}
+                                  {vehicle.active ? `✅ ${t.vehicles.active}` : `⏸️ ${t.vehicles.retired}`}
                                 </span>
                               </div>
                               <div className="flex justify-between">
-                                <span className="text-gray-400">First Flight:</span>
+                                <span className="text-gray-400">{t.vehicles.firstFlight}:</span>
                                 <span className="text-white font-medium">
                                   {new Date(vehicle.first_flight).toLocaleDateString()}
                                 </span>

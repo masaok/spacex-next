@@ -145,10 +145,10 @@ export default function LaunchesPage() {
           {/* Header Section */}
           <div className="text-center mb-12">
             <h1 className="text-6xl font-bold bg-gradient-to-r from-purple-400 via-pink-400 to-cyan-400 bg-clip-text text-transparent mb-4">
-              🚀 SpaceX Launches
+              🚀 {t.launches.title}
             </h1>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              Witness the history of SpaceX missions from the first Falcon 1 flight to the latest Starship tests
+              {t.launches.subtitle}
             </p>
           </div>
 
@@ -157,31 +157,31 @@ export default function LaunchesPage() {
             <ModernCard variant="gradient" hover={false}>
               <div className="text-center">
                 <AnimatedCounter value={stats.total} className="text-3xl" />
-                <p className="text-gray-300 mt-2">Total Launches</p>
+                <p className="text-gray-300 mt-2">{t.launches.totalLaunches}</p>
               </div>
             </ModernCard>
             <ModernCard variant="neon" hover={false}>
               <div className="text-center">
                 <AnimatedCounter value={stats.successful} className="text-3xl text-green-400" />
-                <p className="text-gray-300 mt-2">Successful</p>
+                <p className="text-gray-300 mt-2">{t.launches.successful}</p>
               </div>
             </ModernCard>
             <ModernCard variant="glass" hover={false}>
               <div className="text-center">
                 <AnimatedCounter value={stats.failed} className="text-3xl text-red-400" />
-                <p className="text-gray-300 mt-2">Failed</p>
+                <p className="text-gray-300 mt-2">{t.launches.failed}</p>
               </div>
             </ModernCard>
             <ModernCard variant="default" hover={false}>
               <div className="text-center">
                 <AnimatedCounter value={stats.upcoming} className="text-3xl text-yellow-400" />
-                <p className="text-gray-300 mt-2">Upcoming</p>
+                <p className="text-gray-300 mt-2">{t.launches.upcoming}</p>
               </div>
             </ModernCard>
             <ModernCard variant="gradient" hover={false}>
               <div className="text-center">
                 <AnimatedCounter value={stats.successRate} suffix="%" className="text-3xl text-purple-400" />
-                <p className="text-gray-300 mt-2">Success Rate</p>
+                <p className="text-gray-300 mt-2">{t.launches.successRate}</p>
               </div>
             </ModernCard>
           </div>
@@ -192,7 +192,7 @@ export default function LaunchesPage() {
               <div className="flex-1">
                 <input
                   type="text"
-                  placeholder="Search by mission name or flight number..."
+                  placeholder={t.launches.searchPlaceholder}
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
                   className="w-full px-4 py-3 bg-gray-800/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:border-purple-400 focus:outline-none"
@@ -208,7 +208,7 @@ export default function LaunchesPage() {
                       variant={filterType === type ? 'primary' : 'secondary'}
                       className="px-4 py-2 text-sm"
                     >
-                      {type === 'all' ? '🌍 All' : type === 'past' ? '📅 Past' : '🎯 Upcoming'}
+                      {type === 'all' ? `🌍 ${t.launches.all}` : type === 'past' ? `📅 ${t.launches.past}` : `🎯 ${t.launches.upcoming}`}
                     </GlowingButton>
                   ))}
                 </div>
@@ -221,7 +221,7 @@ export default function LaunchesPage() {
                       variant={successFilter === status ? 'neon' : 'secondary'}
                       className="px-4 py-2 text-sm"
                     >
-                      {status === 'all' ? 'Any' : status === 'success' ? '✅ Success' : '❌ Failed'}
+                      {status === 'all' ? t.launches.any : status === 'success' ? `✅ ${t.launches.success}` : `❌ ${t.launches.failure}`}
                     </GlowingButton>
                   ))}
                 </div>

@@ -119,7 +119,7 @@ export default function CompanyPage() {
             </p>
             <ModernCard variant="glass" className="max-w-4xl mx-auto">
               <p className="text-lg text-gray-300 leading-relaxed">
-                {company.summary}
+                {t.company.description}
               </p>
             </ModernCard>
           </div>

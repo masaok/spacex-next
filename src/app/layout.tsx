@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 import Header from "../components/Header";
 import { generateSEOMetadata, homePageSEO } from "../lib/seo";
@@ -37,6 +38,16 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-black min-h-screen`}
       >
+        <Script
+          id="consent-manager"
+          type="text/javascript"
+          data-cmp-ab="1"
+          src="https://cdn.consentmanager.net/delivery/autoblocking/6785bc5732160.js"
+          data-cmp-host="c.delivery.consentmanager.net"
+          data-cmp-cdn="cdn.consentmanager.net"
+          data-cmp-codesrc="16"
+          strategy="beforeInteractive"
+        />
         <GoogleAnalytics gaId={GOOGLE_ANALYTICS_ID} />
         <PerformanceMonitor />
         <Header />
