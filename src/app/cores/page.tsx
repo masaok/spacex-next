@@ -215,7 +215,14 @@ export default function CoresPage() {
                   <div className="p-6">
                     <div className="flex items-center justify-between mb-4">
                       <h3 className="text-2xl font-bold text-white">{core.serial}</h3>
-                      <StatusBadge status={core.status} />
+                      <StatusBadge status={
+                        core.status === 'active' ? 'active' :
+                        core.status === 'inactive' ? 'inactive' :
+                        core.status === 'expended' ? 'failure' :
+                        core.status === 'lost' ? 'failure' :
+                        core.status === 'retired' ? 'inactive' :
+                        'inactive'
+                      } />
                     </div>
 
                     <div className="space-y-3">
