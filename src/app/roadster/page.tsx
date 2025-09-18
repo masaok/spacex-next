@@ -59,7 +59,7 @@ export default function RoadsterPage() {
     };
 
     fetchRoadster();
-  }, []);
+  }, [t.roadster.error]);
 
   useEffect(() => {
     if (roadster?.flickr_images && roadster.flickr_images.length > 1) {

@@ -30,6 +30,18 @@ export default function CoresPage() {
   const { currentLanguage } = useLanguageStore();
   const t = getTranslation(currentLanguage);
 
+  const translateCoreUpdate = (text: string): string => {
+    const translationData = t as Record<string, Record<string, Record<string, string> | string>>;
+    const phrases = translationData?.cores?.updatePhrases as Record<string, string> | undefined;
+    if (!phrases || !text) return text;
+    let result = text;
+    for (const [needle, replacement] of Object.entries(phrases)) {
+      if (!needle) continue;
+      result = result.replaceAll(needle, replacement);
+    }
+    return result;
+  };
+
   useEffect(() => {
     const fetchCores = async () => {
       try {
@@ -45,7 +57,7 @@ export default function CoresPage() {
     };
 
     fetchCores();
-  }, []);
+  }, [t.cores.error]);
 
   const filteredCores = cores.filter(core => {
     const matchesSearch = core.serial.toLowerCase().includes(searchTerm.toLowerCase());
@@ -172,7 +184,7 @@ export default function CoresPage() {
                     variant={statusFilter === status ? 'primary' : 'secondary'}
                     className="px-3 py-1 text-sm"
                   >
-                    {status.charAt(0).toUpperCase() + status.slice(1)}
+                    {(t as Record<string, Record<string, string>>)?.cores?.[status] ?? status.charAt(0).toUpperCase() + status.slice(1)}
                     {status !== 'all' && statusCounts[status] && (
                       <span className="ml-2 bg-white/20 px-2 py-1 rounded-full text-xs">
                         {statusCounts[status]}
@@ -264,7 +276,7 @@ export default function CoresPage() {
                       {core.last_update && (
                         <div className="mt-4 pt-4 border-t border-gray-600">
                           <p className="text-xs text-gray-400 italic">
-                            {core.last_update}
+                            {translateCoreUpdate(core.last_update)}
                           </p>
                         </div>
                       )}

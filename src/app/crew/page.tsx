@@ -42,7 +42,7 @@ export default function CrewPage() {
     };
 
     fetchCrew();
-  }, []);
+  }, [t.crew.error]);
 
   const filteredCrew = crew.filter(member => {
     const matchesSearch = member.name.toLowerCase().includes(searchTerm.toLowerCase()) ||

@@ -57,7 +57,7 @@ export default function CompanyPage() {
     };
 
     fetchCompany();
-  }, []);
+  }, [t.company.error]);
 
   if (loading) {
     return (
