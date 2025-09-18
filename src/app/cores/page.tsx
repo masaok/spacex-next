@@ -31,8 +31,8 @@ export default function CoresPage() {
   const t = getTranslation(currentLanguage);
 
   const translateCoreUpdate = (text: string): string => {
-    const translationData = t as Record<string, Record<string, Record<string, string> | string>>;
-    const phrases = translationData?.cores?.updatePhrases as Record<string, string> | undefined;
+    const translationObject = t as { cores?: { updatePhrases?: Record<string, string> } };
+    const phrases = translationObject?.cores?.updatePhrases;
     if (!phrases || !text) return text;
     let result = text;
     for (const [needle, replacement] of Object.entries(phrases)) {
@@ -184,7 +184,7 @@ export default function CoresPage() {
                     variant={statusFilter === status ? 'primary' : 'secondary'}
                     className="px-3 py-1 text-sm"
                   >
-                    {(t as Record<string, Record<string, string>>)?.cores?.[status] ?? status.charAt(0).toUpperCase() + status.slice(1)}
+                    {(t as { cores?: { [key: string]: string } })?.cores?.[status] ?? status.charAt(0).toUpperCase() + status.slice(1)}
                     {status !== 'all' && statusCounts[status] && (
                       <span className="ml-2 bg-white/20 px-2 py-1 rounded-full text-xs">
                         {statusCounts[status]}
