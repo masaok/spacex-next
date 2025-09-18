@@ -24,7 +24,13 @@ const geistMono = Geist_Mono({
 });
 
 // Enhanced SEO metadata for root layout
-export const metadata: Metadata = generateSEOMetadata(homePageSEO);
+export const metadata: Metadata = {
+  ...generateSEOMetadata(homePageSEO),
+  themeColor: [
+    { media: '(prefers-color-scheme: light)', color: '#ffffff' },
+    { media: '(prefers-color-scheme: dark)', color: '#0b0f19' },
+  ],
+};
 
 export default function RootLayout({
   children,
