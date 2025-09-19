@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
@@ -26,6 +26,9 @@ const geistMono = Geist_Mono({
 // Enhanced SEO metadata for root layout
 export const metadata: Metadata = {
   ...generateSEOMetadata(homePageSEO),
+};
+
+export const viewport: Viewport = {
   themeColor: [
     { media: '(prefers-color-scheme: light)', color: '#ffffff' },
     { media: '(prefers-color-scheme: dark)', color: '#0b0f19' },
