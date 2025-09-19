@@ -10,24 +10,11 @@ export interface Language {
 export const SUPPORTED_LANGUAGES: Language[] = [
   { code: 'en', name: 'English', countryCode: 'US' },
   { code: 'zh', name: '中文', countryCode: 'CN' },
-  { code: 'hi', name: 'हिन्दी', countryCode: 'IN' },
   { code: 'es', name: 'Español', countryCode: 'ES' },
   { code: 'fr', name: 'Français', countryCode: 'FR' },
-  { code: 'ar', name: 'العربية', countryCode: 'SA' },
-  { code: 'bn', name: 'বাংলা', countryCode: 'BD' },
-  { code: 'ru', name: 'Русский', countryCode: 'RU' },
-  { code: 'pt', name: 'Português', countryCode: 'BR' },
-  { code: 'id', name: 'Bahasa Indonesia', countryCode: 'ID' },
-  { code: 'ur', name: 'اردو', countryCode: 'PK' },
   { code: 'de', name: 'Deutsch', countryCode: 'DE' },
   { code: 'ja', name: '日本語', countryCode: 'JP' },
-  { code: 'sw', name: 'Kiswahili', countryCode: 'TZ' },
-  { code: 'mr', name: 'मराठी', countryCode: 'IN' },
-  { code: 'te', name: 'తెలుగు', countryCode: 'IN' },
-  { code: 'tr', name: 'Türkçe', countryCode: 'TR' },
-  { code: 'ta', name: 'தமிழ்', countryCode: 'IN' },
-  { code: 'vi', name: 'Tiếng Việt', countryCode: 'VN' },
-  { code: 'ko', name: '한국어', countryCode: 'KR' },
+  { code: 'da', name: 'Dansk', countryCode: 'DK' },
 ];
 
 interface LanguageStore {

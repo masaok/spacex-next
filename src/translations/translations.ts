@@ -4,6 +4,7 @@ import { zh } from './zh';
 import { ja } from './ja';
 import { fr } from './fr';
 import { de } from './de';
+import { da } from './da';
 
 // Simplified translations object with essential languages
 export const translations = {
@@ -13,6 +14,7 @@ export const translations = {
   ja,
   fr,
   de,
+  da,
   // For now, other languages will fallback to English
   hi: en,
   ar: en,
