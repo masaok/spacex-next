@@ -2,19 +2,33 @@
 
 import Link from 'next/link';
 import { useState } from 'react';
-import { useLanguageStore, SUPPORTED_LANGUAGES } from '../store/languageStore';
+import { useParams, usePathname, useRouter } from 'next/navigation';
+import { LANGUAGE_CONFIGS } from '../types/language';
 import { getTranslation } from '../translations/translations';
 import { APP_NAME } from '../config/app.config';
 import Image from 'next/image';
+import { type SupportedLanguage } from '../types/language';
 
 export default function Header() {
-  const { currentLanguage, setLanguage, getCurrentLanguage } = useLanguageStore();
+  const params = useParams<{ lang: SupportedLanguage }>();
+  const pathname = usePathname();
+  const router = useRouter();
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const t = getTranslation(currentLanguage);
-  const currentLang = getCurrentLanguage();
 
-  const handleLanguageChange = (languageCode: string) => {
-    setLanguage(languageCode);
+  const currentLanguage = params?.lang || 'en';
+  const t = getTranslation(currentLanguage);
+  const currentLang = LANGUAGE_CONFIGS[currentLanguage];
+
+  const handleLanguageChange = (languageCode: SupportedLanguage) => {
+    // Replace the current language in the pathname with the new one
+    const segments = pathname.split('/');
+    if (segments[1] && segments[1] in LANGUAGE_CONFIGS) {
+      segments[1] = languageCode;
+    } else {
+      segments.splice(1, 0, languageCode);
+    }
+    const newPath = segments.join('/');
+    router.push(newPath);
     setIsDropdownOpen(false);
   };
 
@@ -25,7 +39,7 @@ export default function Header() {
           {/* Logo/Title */}
           <div className="flex items-center">
             <Link
-              href="/"
+              href={`/${currentLanguage}`}
               className="text-xl font-bold text-white hover:text-blue-400 transition-colors"
             >
               {APP_NAME}
@@ -35,43 +49,43 @@ export default function Header() {
           {/* Navigation Links */}
           <div className="hidden md:flex items-center space-x-6">
             <Link
-              href="/launches"
+              href={`/${currentLanguage}/launches`}
               className="text-gray-300 hover:text-white transition-colors font-medium"
             >
               {t.header.launches}
             </Link>
             <Link
-              href="/vehicles"
+              href={`/${currentLanguage}/vehicles`}
               className="text-gray-300 hover:text-white transition-colors font-medium"
             >
               {t.header.vehicles}
             </Link>
             <Link
-              href="/capsules"
+              href={`/${currentLanguage}/capsules`}
               className="text-gray-300 hover:text-white transition-colors font-medium"
             >
               {t.header.capsules}
             </Link>
             <Link
-              href="/crew"
+              href={`/${currentLanguage}/crew`}
               className="text-gray-300 hover:text-white transition-colors font-medium"
             >
               {t.header.crew}
             </Link>
             <Link
-              href="/cores"
+              href={`/${currentLanguage}/cores`}
               className="text-gray-300 hover:text-white transition-colors font-medium"
             >
               {t.header.cores}
             </Link>
             <Link
-              href="/company"
+              href={`/${currentLanguage}/company`}
               className="text-gray-300 hover:text-white transition-colors font-medium"
             >
               {t.header.company}
             </Link>
             <Link
-              href="/roadster"
+              href={`/${currentLanguage}/roadster`}
               className="text-gray-300 hover:text-white transition-colors font-medium"
             >
               🚗 Roadster
@@ -107,7 +121,7 @@ export default function Header() {
               {isDropdownOpen && (
                 <div className="absolute right-0 mt-2 w-56 bg-gray-800 border border-gray-700 rounded-md shadow-lg z-50 max-h-96 overflow-y-auto">
                   <div className="py-1">
-                    {SUPPORTED_LANGUAGES.map((language) => (
+                    {Object.values(LANGUAGE_CONFIGS).map((language) => (
                       <button
                         key={language.code}
                         onClick={() => handleLanguageChange(language.code)}
@@ -156,49 +170,49 @@ export default function Header() {
           <div className="md:hidden border-t border-gray-800 pt-4 pb-4">
             <div className="space-y-2">
               <Link
-                href="/launches"
+                href={`/${currentLanguage}/launches`}
                 className="block text-gray-300 hover:text-white transition-colors font-medium py-2"
                 onClick={() => setIsDropdownOpen(false)}
               >
                 {t.header.launches}
               </Link>
               <Link
-                href="/vehicles"
+                href={`/${currentLanguage}/vehicles`}
                 className="block text-gray-300 hover:text-white transition-colors font-medium py-2"
                 onClick={() => setIsDropdownOpen(false)}
               >
                 {t.header.vehicles}
               </Link>
               <Link
-                href="/capsules"
+                href={`/${currentLanguage}/capsules`}
                 className="block text-gray-300 hover:text-white transition-colors font-medium py-2"
                 onClick={() => setIsDropdownOpen(false)}
               >
                 {t.header.capsules}
               </Link>
               <Link
-                href="/crew"
+                href={`/${currentLanguage}/crew`}
                 className="block text-gray-300 hover:text-white transition-colors font-medium py-2"
                 onClick={() => setIsDropdownOpen(false)}
               >
                 {t.header.crew}
               </Link>
               <Link
-                href="/cores"
+                href={`/${currentLanguage}/cores`}
                 className="block text-gray-300 hover:text-white transition-colors font-medium py-2"
                 onClick={() => setIsDropdownOpen(false)}
               >
                 {t.header.cores}
               </Link>
               <Link
-                href="/company"
+                href={`/${currentLanguage}/company`}
                 className="block text-gray-300 hover:text-white transition-colors font-medium py-2"
                 onClick={() => setIsDropdownOpen(false)}
               >
                 {t.header.company}
               </Link>
               <Link
-                href="/roadster"
+                href={`/${currentLanguage}/roadster`}
                 className="block text-gray-300 hover:text-white transition-colors font-medium py-2"
                 onClick={() => setIsDropdownOpen(false)}
               >
@@ -209,7 +223,7 @@ export default function Header() {
               <div className="pt-2 border-t border-gray-800 mt-2">
                 <p className="text-sm text-gray-400 mb-2">Language / भाषा / 语言</p>
                 <div className="grid grid-cols-2 gap-1">
-                  {SUPPORTED_LANGUAGES.map((language) => (
+                  {Object.values(LANGUAGE_CONFIGS).map((language) => (
                     <button
                       key={language.code}
                       onClick={() => handleLanguageChange(language.code)}

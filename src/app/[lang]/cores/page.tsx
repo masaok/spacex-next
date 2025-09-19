@@ -3,8 +3,8 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { ModernCard, GlowingButton, AnimatedCounter, StatusBadge, FloatingParticles } from '@/components/ui/ModernCard';
-import { useLanguageStore } from '@/store/languageStore';
 import { getTranslation } from '@/translations/translations';
+import { type SupportedLanguage } from '@/types/language';
 
 interface Core {
   id: string;
@@ -20,15 +20,23 @@ interface Core {
   launches: string[];
 }
 
-export default function CoresPage() {
+interface CoresPageProps {
+  params: Promise<{ lang: SupportedLanguage }>;
+}
+
+export default function CoresPage({ params }: CoresPageProps) {
   const [cores, setCores] = useState<Core[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [searchTerm, setSearchTerm] = useState('');
   const [statusFilter, setStatusFilter] = useState<string>('all');
   const [blockFilter, setBlockFilter] = useState<string>('all');
-  const { currentLanguage } = useLanguageStore();
-  const t = getTranslation(currentLanguage);
+  const [lang, setLang] = useState<SupportedLanguage>('en');
+  const t = getTranslation(lang);
+
+  useEffect(() => {
+    params.then(({ lang }) => setLang(lang));
+  }, [params]);
 
   const translateCoreUpdate = (text: string): string => {
     const translationObject = t as { cores?: { updatePhrases?: Record<string, string> } };

@@ -2,14 +2,18 @@ import { generateSEOMetadata } from '@/lib/seo';
 import { roadsterPageSEO } from '@/lib/seo';
 import { StructuredData } from '@/components/StructuredData';
 import { PerformanceMonitor } from '@/components/PerformanceMonitor';
+import { SupportedLanguage } from '@/types/language';
 
 export const metadata = generateSEOMetadata(roadsterPageSEO);
 
-export default function RoadsterLayout({
+export default async function RoadsterLayout({
   children,
+  params,
 }: {
   children: React.ReactNode;
+  params: Promise<{ lang: SupportedLanguage }>;
 }) {
+  const { lang } = await params;
   return (
     <>
       <StructuredData
@@ -17,7 +21,7 @@ export default function RoadsterLayout({
         data={{
           title: "Tesla Roadster in Space - Live Tracking Data",
           description: "Track Elon Musk's Tesla Roadster currently orbiting in space. Live position data, orbital mechanics, and journey through the solar system.",
-          url: "/roadster"
+          url: `/${lang}/roadster`
         }}
       />
       <PerformanceMonitor />

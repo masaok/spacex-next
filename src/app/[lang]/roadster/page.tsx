@@ -4,8 +4,8 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { ModernCard, GlowingButton, AnimatedCounter, FloatingParticles } from '@/components/ui/ModernCard';
 import { OptimizedImage } from '@/components/OptimizedImage';
-import { useLanguageStore } from '@/store/languageStore';
 import { getTranslation } from '@/translations/translations';
+import { SupportedLanguage } from '@/types/language';
 
 interface Roadster {
   name: string;
@@ -36,13 +36,17 @@ interface Roadster {
   details: string;
 }
 
-export default function RoadsterPage() {
+export default function RoadsterPage({ params }: { params: Promise<{ lang: SupportedLanguage }> }) {
   const [roadster, setRoadster] = useState<Roadster | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const { currentLanguage } = useLanguageStore();
-  const t = getTranslation(currentLanguage);
+  const [lang, setLang] = useState<SupportedLanguage>('en');
+  const t = getTranslation(lang);
+
+  useEffect(() => {
+    params.then(({ lang }) => setLang(lang));
+  }, [params]);
 
   useEffect(() => {
     const fetchRoadster = async () => {

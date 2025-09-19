@@ -2,14 +2,18 @@ import { generateSEOMetadata } from '@/lib/seo';
 import { capsulesPageSEO } from '@/lib/seo';
 import { StructuredData } from '@/components/StructuredData';
 import { PerformanceMonitor } from '@/components/PerformanceMonitor';
+import { SupportedLanguage } from '@/types/language';
 
 export const metadata = generateSEOMetadata(capsulesPageSEO);
 
-export default function CapsulesLayout({
+export default async function CapsulesLayout({
   children,
+  params,
 }: {
   children: React.ReactNode;
+  params: Promise<{ lang: SupportedLanguage }>;
 }) {
+  const { lang } = await params;
   return (
     <>
       <StructuredData
@@ -17,7 +21,7 @@ export default function CapsulesLayout({
         data={{
           title: "Dragon Capsules - SpaceX Spacecraft Database",
           description: "Explore SpaceX Dragon capsule fleet with detailed specifications, mission history, and status.",
-          url: "/capsules"
+          url: `/${lang}/capsules`
         }}
       />
       <PerformanceMonitor />

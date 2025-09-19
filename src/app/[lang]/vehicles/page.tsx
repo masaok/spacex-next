@@ -4,8 +4,8 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { ModernCard, GlowingButton, AnimatedCounter, StatusBadge, FloatingParticles } from '@/components/ui/ModernCard';
 import { OptimizedImage } from '@/components/OptimizedImage';
-import { useLanguageStore } from '@/store/languageStore';
 import { getTranslation } from '@/translations/translations';
+import { SupportedLanguage } from '@/types/language';
 
 interface Vehicle {
   id: string;
@@ -56,14 +56,18 @@ interface Vehicle {
   };
 }
 
-export default function VehiclesPage() {
+export default function VehiclesPage({ params }: { params: Promise<{ lang: SupportedLanguage }> }) {
   const [vehicles, setVehicles] = useState<Vehicle[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [selectedVehicle, setSelectedVehicle] = useState<string | null>(null);
   const [imageIndices, setImageIndices] = useState<Record<string, number>>({});
-  const { currentLanguage } = useLanguageStore();
-  const t = getTranslation(currentLanguage);
+  const [lang, setLang] = useState<SupportedLanguage>('en');
+  const t = getTranslation(lang);
+
+  useEffect(() => {
+    params.then(({ lang }) => setLang(lang));
+  }, [params]);
 
   useEffect(() => {
     const fetchVehicles = async () => {

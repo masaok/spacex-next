@@ -3,8 +3,8 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { ModernCard, GlowingButton, AnimatedCounter, StatusBadge, FloatingParticles } from '@/components/ui/ModernCard';
-import { useLanguageStore } from '@/store/languageStore';
 import { getTranslation } from '@/translations/translations';
+import { SupportedLanguage } from '@/types/language';
 
 interface Capsule {
   id: string;
@@ -19,14 +19,18 @@ interface Capsule {
   launches: string[];
 }
 
-export default function CapsulesPage() {
+export default function CapsulesPage({ params }: { params: Promise<{ lang: SupportedLanguage }> }) {
   const [capsules, setCapsules] = useState<Capsule[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [searchTerm, setSearchTerm] = useState('');
   const [statusFilter, setStatusFilter] = useState<string>('all');
-  const { currentLanguage } = useLanguageStore();
-  const t = getTranslation(currentLanguage);
+  const [lang, setLang] = useState<SupportedLanguage>('en');
+  const t = getTranslation(lang);
+
+  useEffect(() => {
+    params.then(({ lang }) => setLang(lang));
+  }, [params]);
 
   useEffect(() => {
     const fetchCapsules = async () => {

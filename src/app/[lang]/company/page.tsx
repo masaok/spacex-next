@@ -3,8 +3,8 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { ModernCard, GlowingButton, AnimatedCounter, FloatingParticles } from '@/components/ui/ModernCard';
-import { useLanguageStore } from '@/store/languageStore';
 import { getTranslation } from '@/translations/translations';
+import { SupportedLanguage } from '@/types/language';
 
 interface Headquarters {
   address: string;
@@ -35,12 +35,16 @@ interface Company {
   summary: string;
 }
 
-export default function CompanyPage() {
+export default function CompanyPage({ params }: { params: Promise<{ lang: SupportedLanguage }> }) {
   const [company, setCompany] = useState<Company | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const { currentLanguage } = useLanguageStore();
-  const t = getTranslation(currentLanguage);
+  const [lang, setLang] = useState<SupportedLanguage>('en');
+  const t = getTranslation(lang);
+
+  useEffect(() => {
+    params.then(({ lang }) => setLang(lang));
+  }, [params]);
 
   useEffect(() => {
     const fetchCompany = async () => {

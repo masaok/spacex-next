@@ -1,11 +1,13 @@
 import { Metadata } from 'next';
 import { APP_NAME } from '../config/app.config';
+import { SUPPORTED_LANGUAGES, type SupportedLanguage, DEFAULT_LANGUAGE } from '../types/language';
 
 interface SEOProps {
   title?: string;
   description?: string;
   keywords?: string[];
   canonical?: string;
+  lang?: SupportedLanguage;
   openGraph?: {
     title?: string;
     description?: string;
@@ -44,29 +46,42 @@ export function generateSEOMetadata({
   description = DEFAULT_DESCRIPTION,
   keywords = DEFAULT_KEYWORDS,
   canonical,
+  lang = DEFAULT_LANGUAGE,
   openGraph,
   twitter,
 }: SEOProps = {}): Metadata {
   const fullTitle = title ? `${title} | ${DEFAULT_TITLE}` : DEFAULT_TITLE;
-  const pageUrl = canonical ? `${SITE_URL}${canonical}` : SITE_URL;
+
+  // Generate language-specific URLs
+  const basePath = canonical || '/';
+  const currentPageUrl = `${SITE_URL}/${lang}${basePath === '/' ? '' : basePath}`;
+  const defaultPageUrl = `${SITE_URL}/${DEFAULT_LANGUAGE}${basePath === '/' ? '' : basePath}`;
+
+  // Generate hreflang alternates
+  const languageAlternates: Record<string, string> = {};
+  SUPPORTED_LANGUAGES.forEach(language => {
+    languageAlternates[language] = `${SITE_URL}/${language}${basePath === '/' ? '' : basePath}`;
+  });
 
   return {
     title: fullTitle,
     description,
     keywords: keywords.join(', '),
 
-    // Canonical URL
+    // Canonical URL points to default language version
     alternates: {
-      canonical: pageUrl,
+      canonical: defaultPageUrl,
+      languages: languageAlternates,
     },
 
     // Open Graph
     openGraph: {
       title: openGraph?.title || fullTitle,
       description: openGraph?.description || description,
-      url: pageUrl,
+      url: currentPageUrl,
       siteName: DEFAULT_TITLE,
       type: openGraph?.type || 'website',
+      locale: lang,
       images: openGraph?.image ? [
         {
           url: openGraph.image,

@@ -4,8 +4,8 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { ModernCard, GlowingButton, AnimatedCounter, StatusBadge, FloatingParticles } from '@/components/ui/ModernCard';
 import { OptimizedImage } from '@/components/OptimizedImage';
-import { useLanguageStore } from '@/store/languageStore';
 import { getTranslation } from '@/translations/translations';
+import { SupportedLanguage } from '@/types/language';
 import { DateTime } from 'luxon';
 
 interface Launch {
@@ -49,7 +49,7 @@ interface Launch {
   };
 }
 
-export default function LaunchesPage() {
+export default function LaunchesPage({ params }: { params: Promise<{ lang: SupportedLanguage }> }) {
   const [launches, setLaunches] = useState<Launch[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -57,8 +57,12 @@ export default function LaunchesPage() {
   const [filterType, setFilterType] = useState<'all' | 'past' | 'upcoming'>('all');
   const [successFilter, setSuccessFilter] = useState<'all' | 'success' | 'failure'>('all');
   const [sortOrder, setSortOrder] = useState<'desc' | 'asc'>('desc');
-  const { currentLanguage } = useLanguageStore();
-  const t = getTranslation(currentLanguage);
+  const [lang, setLang] = useState<SupportedLanguage>('en');
+  const t = getTranslation(lang);
+
+  useEffect(() => {
+    params.then(({ lang }) => setLang(lang));
+  }, [params]);
 
   useEffect(() => {
     const fetchLaunches = async () => {

@@ -1,12 +1,14 @@
-'use client';
-
 import Link from "next/link";
-import { useLanguageStore } from "../store/languageStore";
-import { getTranslation } from "../translations/translations";
+import { getTranslation } from "../../translations/translations";
+import { type SupportedLanguage } from "../../types/language";
 
-export default function Home() {
-  const { currentLanguage } = useLanguageStore();
-  const t = getTranslation(currentLanguage);
+interface HomeProps {
+  params: Promise<{ lang: SupportedLanguage }>;
+}
+
+export default async function Home({ params }: HomeProps) {
+  const { lang } = await params;
+  const t = getTranslation(lang);
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900">
@@ -32,7 +34,7 @@ export default function Home() {
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link
-                  href="/launches"
+                  href={`/${lang}/launches`}
                   className="group bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 transform hover:scale-105 hover:shadow-xl"
                 >
                   <span className="flex items-center justify-center">
@@ -43,7 +45,7 @@ export default function Home() {
                   </span>
                 </Link>
                 <Link
-                  href="/vehicles"
+                  href={`/${lang}/vehicles`}
                   className="group bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white border border-white/30 px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 transform hover:scale-105 hover:shadow-xl"
                 >
                   <span className="flex items-center justify-center">
@@ -73,7 +75,7 @@ export default function Home() {
 
           <div className="grid md:grid-cols-2 gap-8">
             {/* Launches Card */}
-            <Link href="/launches" className="group">
+            <Link href={`/${lang}/launches`} className="group">
               <div className="bg-gradient-to-br from-slate-800 to-slate-900 rounded-2xl p-8 border border-slate-700 hover:border-blue-500 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl">
                 <div className="flex items-center mb-6">
                   <div className="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center text-2xl mr-4">
@@ -97,7 +99,7 @@ export default function Home() {
             </Link>
 
             {/* Vehicles Card */}
-            <Link href="/vehicles" className="group">
+            <Link href={`/${lang}/vehicles`} className="group">
               <div className="bg-gradient-to-br from-slate-800 to-slate-900 rounded-2xl p-8 border border-slate-700 hover:border-purple-500 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl">
                 <div className="flex items-center mb-6">
                   <div className="w-12 h-12 bg-purple-600 rounded-lg flex items-center justify-center text-2xl mr-4">
