@@ -220,6 +220,9 @@ export const it = {
     missions: "Missioni",
     noCoresFound: "Nessuno stadio trovato",
     adjustFilters: "Prova a modificare la ricerca o i filtri.",
+    landingTypes: "Tipi di atterraggio",
+    rtlsDescription: "Return to Launch Site (atterraggio sul sito di lancio)",
+    asdsDescription: "Autonomous Spaceport Drone Ship (atterraggio su piattaforma galleggiante)",
   },
 
   // Crew Page
