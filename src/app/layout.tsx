@@ -7,8 +7,8 @@ import Footer from "../components/Footer";
 import { generateSEOMetadata, homePageSEO } from "../lib/seo";
 import { HomePageSchema } from "../components/StructuredData";
 import { PerformanceMonitor } from "../components/PerformanceMonitor";
-import { GoogleAnalytics } from '@next/third-parties/google';
-import { GOOGLE_ANALYTICS_ID, GOOGLE_ANALYTICS_CONSENT_MODE } from '../config/app.config';
+import { OptimizedGoogleAnalytics } from "../components/OptimizedGoogleAnalytics";
+import { GOOGLE_ANALYTICS_CONSENT_MODE } from '../config/app.config';
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -60,7 +60,7 @@ export default function RootLayout({
             strategy="beforeInteractive"
           />
         )}
-        <GoogleAnalytics gaId={GOOGLE_ANALYTICS_ID} />
+        <OptimizedGoogleAnalytics />
         <PerformanceMonitor />
         <div className="min-h-screen flex flex-col">
           <Header />
