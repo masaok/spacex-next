@@ -44,5 +44,7 @@ module.exports = {
     upload: {
       target: 'temporary-public-storage',
     },
+    githubStatusContext: 'lhci',
+    githubToken: process.env.LHCI_GITHUB_TOKEN,
   },
 };
