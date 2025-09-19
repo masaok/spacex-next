@@ -18,3 +18,8 @@ Notes
 - The workflow uploads HTML reports as a build artifact under `.lighthouseci` and also to LHCI temporary public storage.
 - Thresholds are set to "warn" initially so audits don't fail the build; tighten them over time.
 
+GitHub status checks
+- Create a repo secret named `LHCI_GITHUB_TOKEN` containing a Personal Access Token (classic) with at least `repo:status` (or `public_repo` for public repos). Org-level secret also works.
+- The workflow at `.github/workflows/lighthouse-ci.yml:40` passes this secret to `lhci` via the `LHCI_GITHUB_TOKEN` env var so Lighthouse CI can post commit status checks.
+- If you prefer the Lighthouse CI GitHub App, create a secret `LHCI_GITHUB_APP_TOKEN` with the app token and set it in the workflow instead of `LHCI_GITHUB_TOKEN`.
+- For forks, GitHub may restrict secrets on pull_request from forks. Use `pull_request_target` or PAT-based workflows cautiously.

@@ -8,6 +8,10 @@ on:
 jobs:
   lhci:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+      statuses: write
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -34,6 +38,8 @@ jobs:
           done
 
       - name: Run Lighthouse CI
+        env:
+          LHCI_GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: npx --yes @lhci/cli@0.13.x autorun --config=.lighthouserc.js
 
       - name: Upload LHCI artifacts
@@ -42,4 +48,3 @@ jobs:
         with:
           name: lhci-results
           path: .lighthouseci
-
