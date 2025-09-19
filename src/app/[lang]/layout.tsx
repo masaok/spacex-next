@@ -10,7 +10,7 @@ import { HomePageSchema } from "../../components/StructuredData";
 import { PerformanceMonitor } from "../../components/PerformanceMonitor";
 import { OptimizedGoogleAnalytics } from "../../components/OptimizedGoogleAnalytics";
 import { GOOGLE_ANALYTICS_CONSENT_MODE } from '../../config/app.config';
-import { isSupportedLanguage, type SupportedLanguage } from '../../types/language';
+import { isSupportedLanguage, type SupportedLanguage, DEFAULT_LANGUAGE } from '../../types/language';
 import { LanguageProvider } from '../../components/LanguageProvider';
 import { HrefLangTags } from '../../components/HrefLangTags';
 
@@ -28,8 +28,12 @@ const geistMono = Geist_Mono({
 });
 
 // Enhanced SEO metadata for root layout with language-specific content
-export async function generateMetadata({ params }: { params: Promise<{ lang: SupportedLanguage }> }): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
   const { lang } = await params;
+  // Validate language parameter
+  if (!isSupportedLanguage(lang)) {
+    return generateSEOMetadata({ ...homePageSEO, lang: DEFAULT_LANGUAGE });
+  }
   return generateSEOMetadata({ ...homePageSEO, lang });
 }
 

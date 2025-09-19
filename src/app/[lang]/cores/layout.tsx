@@ -2,11 +2,10 @@ import { generateSEOMetadata } from '@/lib/seo';
 import { coresPageSEO } from '@/lib/seo';
 import { StructuredData } from '@/components/StructuredData';
 import { PerformanceMonitor } from '@/components/PerformanceMonitor';
-import { type SupportedLanguage } from '@/types/language';
 
 interface CoresLayoutProps {
   children: React.ReactNode;
-  params: Promise<{ lang: SupportedLanguage }>;
+  params: Promise<{ lang: string }>;
 }
 
 export const metadata = generateSEOMetadata(coresPageSEO);

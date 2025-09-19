@@ -2,7 +2,6 @@ import { generateSEOMetadata } from '@/lib/seo';
 import { crewPageSEO } from '@/lib/seo';
 import { StructuredData } from '@/components/StructuredData';
 import { PerformanceMonitor } from '@/components/PerformanceMonitor';
-import { SupportedLanguage } from '@/types/language';
 
 export const metadata = generateSEOMetadata(crewPageSEO);
 
@@ -11,7 +10,7 @@ export default async function CrewLayout({
   params,
 }: {
   children: React.ReactNode;
-  params: Promise<{ lang: SupportedLanguage }>;
+  params: Promise<{ lang: string }>;
 }) {
   const { lang } = await params;
   return (

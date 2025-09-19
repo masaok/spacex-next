@@ -2,7 +2,6 @@ import { generateSEOMetadata } from '@/lib/seo';
 import { capsulesPageSEO } from '@/lib/seo';
 import { StructuredData } from '@/components/StructuredData';
 import { PerformanceMonitor } from '@/components/PerformanceMonitor';
-import { SupportedLanguage } from '@/types/language';
 
 export const metadata = generateSEOMetadata(capsulesPageSEO);
 
@@ -11,7 +10,7 @@ export default async function CapsulesLayout({
   params,
 }: {
   children: React.ReactNode;
-  params: Promise<{ lang: SupportedLanguage }>;
+  params: Promise<{ lang: string }>;
 }) {
   const { lang } = await params;
   return (
