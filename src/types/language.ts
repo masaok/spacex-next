@@ -1,6 +1,6 @@
-export type SupportedLanguage = 'en' | 'es' | 'fr' | 'zh' | 'ja' | 'de' | 'da';
+export type SupportedLanguage = 'en' | 'es' | 'fr' | 'zh' | 'ja' | 'de' | 'da' | 'it';
 
-export const SUPPORTED_LANGUAGES: SupportedLanguage[] = ['en', 'es', 'fr', 'zh', 'ja', 'de', 'da'];
+export const SUPPORTED_LANGUAGES: SupportedLanguage[] = ['en', 'es', 'fr', 'zh', 'ja', 'de', 'da', 'it'];
 export const DEFAULT_LANGUAGE: SupportedLanguage = 'en';
 
 export function isSupportedLanguage(lang: string): lang is SupportedLanguage {
@@ -43,4 +43,5 @@ export const LANGUAGE_CONFIGS: Record<SupportedLanguage, LanguageConfig> = {
   ja: { code: 'ja', name: '日本語', countryCode: 'JP' },
   de: { code: 'de', name: 'Deutsch', countryCode: 'DE' },
   da: { code: 'da', name: 'Dansk', countryCode: 'DK' },
+  it: { code: 'it', name: 'Italiano', countryCode: 'IT' },
 };
