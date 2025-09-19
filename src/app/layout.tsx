@@ -44,6 +44,12 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <HomePageSchema />
+        <link rel="manifest" href="/manifest.json" />
+        <meta name="theme-color" content="#0b0f19" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+        <meta name="apple-mobile-web-app-title" content="SpaceX" />
+        <link rel="apple-touch-icon" href="/api/icons/192" />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-black min-h-screen`}
