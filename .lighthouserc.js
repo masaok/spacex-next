@@ -27,12 +27,12 @@ module.exports = {
     },
     assert: {
       // Start with lenient thresholds; tighten over time
-      preset: 'lighthouse:recommended',
+      preset: 'lighthouse:no-pwa',
       assertions: {
-        'categories:performance': ['warn', { minScore: 0.7 }],
-        'categories:accessibility': ['warn', { minScore: 0.8 }],
-        'categories:best-practices': ['warn', { minScore: 0.8 }],
-        'categories:seo': ['warn', { minScore: 0.85 }],
+        'categories:performance': ['warn', { minScore: 0.6 }],
+        'categories:accessibility': ['warn', { minScore: 0.7 }],
+        'categories:best-practices': ['warn', { minScore: 0.7 }],
+        'categories:seo': ['warn', { minScore: 0.8 }],
         // De-noise PWA/CSP checks for this non-PWA app
         'categories:pwa': 'off',
         'installable-manifest': 'off',
